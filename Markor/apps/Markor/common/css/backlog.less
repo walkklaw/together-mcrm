@@ -1,0 +1,40 @@
+/**** fix for css conflicts for google maps ****/
+#backlog {
+	
+	li {
+		padding: 5px;
+		
+		> div:first-child {
+			margin-top: 5px;
+			padding-left: 0;
+			
+			a {
+				width: 5em;
+				border-radius: 5px;
+				padding: 0;
+			}
+		}
+	
+		> div:nth-child(n+2) {
+			a {
+				border-radius: 50%;
+				width: 2em;
+				height: 2em;
+				line-height: 0.5;
+				padding-left: 8px;
+			}
+		}
+	}
+	
+	li:first-child {
+		border-bottom-width: 2px;
+		padding-top: 20px;
+		
+		div:nth-child(n+2) > a {
+			width: 2.5em;
+			height: 2.5em;
+			line-height: 1;
+			padding-left: 10px;
+		}
+	}
+}
