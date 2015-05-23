@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>Ready App</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	
+	<!-- twitter bootstrap -->
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css"/>
+	
+	<!-- jquery mobile -->
+	<link rel="stylesheet" title="default" type="text/css" href="libs/jquery.mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css"/>
+	
+	<link rel="stylesheet" href="themes/ibm_ready_apps_1.4.2/ibm_ready_apps.css" />
+	<link rel="stylesheet" href="themes/ibm_ready_apps_1.4.2/jquery.mobile.icons.min.css" />
+	
+	<!-- cftoaster plugin -->
+	<link rel="stylesheet" title="default" type="text/css" href="libs/cf_toaster/jquery.cftoaster.1.0.1.css"/>
+	
+	<!-- app page css/less files, all additional files are imported in base.less -->
+	<link rel="stylesheet/less" type="text/css" href="css/base.less">
+	
+</head>
+<body id="content"><!--  style="display: none;"> -->
+	
+	<!-- initial splash page -->
+	<div class="ibm_splash" data-role="page"></div>
+
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+	
+	<!-- google maps api v3 -->
+	<!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,geometry&sensor=true"></script -->
+	
+	<!-- modernizr needs to be loaded in the head -->
+	<script src="libs/modernizr/modernizr.custom.79674.js"></script>
+	
+	<!-- requirejs -->
+	<script src="libs/requirejs/require.js" data-main="js/RequireJSConfig"></script>
+</body>
+</html>

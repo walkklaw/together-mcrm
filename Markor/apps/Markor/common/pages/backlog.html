@@ -1,4 +1,4 @@
-<div id="backlog" data-role="page" data-class="HomeView">
+<div id="backlog" data-role="page" data-class="BacklogView">
 
 	<div data-role="header" data-theme="b" data-position="fixed"
 		data-tap-toggle="false">
@@ -95,5 +95,22 @@
 			</li>
 		</ul>
 	</div>
+
+	<script id="serviceEvent-template" type="text/x-handlebars-template">
+		<li>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c {{category}}">{{categoryName}} {{sum}}</a>
+			</div>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c terriblelyExceeded {{#gt terriblelyExceeded 0}}empty{{/gt}}">{{terriblelyExceeded}}</a>
+			</div>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c exceeded {{#gt exceeded 0}}empty{{/gt}}">{{exceeded}}</a>
+			</div>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c health {{#gt health 0}}empty{{/gt}}">{{health}}</a>
+			</div>
+		</li>
+	</script>
 
 </div>

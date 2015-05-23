@@ -1,0 +1,146 @@
+Dependency: requirejs, jquery, backbone, backbone-localstorage, handlebars
+
+AppUtils provide six tools:
+
+1.AppUtils.Router
+
+This is a backbone router with a overridden navigate interface. Use this interface
+to trigger the change page, refresh current page, back to some page and so on.
+
+examples:
+
+	Router.navigate("module/b.html", {    // navigate to b.html
+	  transition : "slide",               // transition effect
+	  errorMessage : {                    // error messages during navigation
+	    network : "No network connection at this time. Please try again later.",
+	    timeout : "Connection timeout. Please try again later.",
+	    server : "The server cannot be reached at this time. Please try again later."
+	  },
+	  data : {                     	      // data to the navigated page
+	    userId : this.userId,
+	    accountId : accountId
+	  },
+	});
+	
+	Router.navigate("back");              // back to the last page
+	Router.navigate("back/a.html");       // back to a.html
+	
+	Router.navigate("refresh");           // refresh the current page
+
+2.PageView
+
+This is a backbone view provide rich functions. Extend this view to get some life 
+cycle function during the page rendering. Such as show/hide loading icon, load data,
+show initial component and error handling.
+
+Note: You must assign the page id to attribute 'element'.
+
+example: 
+
+	<div id="homePage" data-role="page"> ... </div> in home.html
+	element: "#homePage" in HomePageView.js
+
+Please override the initialize and render interface if needed, but need to invoke
+the overridden function at the end of yours.
+
+example:
+
+	initialize : function(options) {
+	  // /////// retrieve parameters from previous page /////
+	  var userId = options && options.data && options.data.userId;
+	  this.userId = userId || 0;
+	
+	  this.modelAndCollections = [ {
+	    name : "accounts",
+	    objClass : AccountCollection,
+	    params : {
+	      userId : this.userId,
+	    }
+	  } ];
+	  // /////// retrieve parameters from previous page /////
+	  
+	  PageView.prototype.initialize.apply(this, options);
+	  return this;
+	},
+
+Default showed component of a page is header, but can customize by assign value
+to attribute 'initialContent'. Value of [ 'header', 'all', 'blank' ] is support.
+
+examples:
+
+	initialContent: header       // only show header, hide other components
+	initialContent: all          // show all components
+	initialContent: blank        // hide all components 
+
+3.LocalizationUtils
+
+This util is used to load language files and apply localization to text.
+Attribute 'language' is the current language, default is en(english).
+Interface 'loadLanguage' is used to load a language file, the default loaded file
+is "en.json".
+Interface 'applyLocalization' is used to apply localization to text.
+
+example:
+	LocalizationUtils.applyLocalization("%header.title%");
+	
+Interface 'getAllCulturesAlphabetically' is used to get all languages.
+
+4.ApiUtils
+
+This util is used by model/collection to send request to server.
+If need to send security request through adapter, please set the attribute 
+'security' to true, default is false. And set the attribute 'securitySuffix' for
+the security procedure.
+Interface 'apiCall' is used to send request.
+
+example:
+
+	// ajax call
+	this.apiCall({
+		apiType : "ajax",
+		params : params,
+		onSuccess : onSuccess,
+		options : {
+			restUrl : this.modelBaseUrl + "/" + params.accountNum,
+			method : 'U'
+		}
+	});
+
+	// adapter call
+	this.apiCall({
+		apiType : "wlapi",
+		params : params,
+		onSuccess : opts.onSuccess,
+		options : {
+		restUrl : this.modelBaseCastironUrl + params.accountNum,
+			adapter : 'Account',
+			method : 'U',
+			procedure : "udpateAccount"
+		}
+	});
+	
+5.TemplateUtils
+
+This util is used to process a handlebar template.
+
+example:
+
+	TemplateUtils.getTemplate("a_list_row", {
+		accounts : accounts,
+	}, onTemplate);
+
+6.SideMenuPanel
+
+This is used to generate a readyapp style side menu for a page. Need to set all
+the link in the Config.js. Then create a sidemenu and render it in your own render
+ function.
+
+example:
+
+	render: function(){
+		...
+		// Home is the current page id set in Config.js
+		new AppUtils.SideMenuPanel().render(this, "Home");
+		...
+	},
+

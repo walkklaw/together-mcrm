@@ -1,0 +1,38 @@
+<div id="messagesPage" data-role="page">
+	
+	<div data-role="header" data-theme="b" data-position="fixed">
+		<h1>%messages.title%</h1>
+		<a id="home-button" class="ui-btn-right" data-icon="home" data-role="button" data-iconpos="notext" data-theme="d">%title.label.home%</a>
+	</div>
+	
+	<div data-role="content">
+	
+		<ul id="messagesList" class="messagesList" data-role="listview" data-inset="false" data-theme="e" data-divider-theme="e">
+			<li data-role="list-divider">
+				%messages.list.divider%
+				<span class="notificationBubbleSpan"></span>
+			</li>
+		</ul>
+		
+	</div>
+	
+	<script type="text/template" id="message-template">
+		<li class="message 
+			{{#not isRead}}
+				unRead
+			{{/not}}
+		">
+		<a>
+			{{#not isRead}}
+			<span class="unreadBubble"></span>
+			{{/not}}
+			<h3>{{subject}}</h3>
+			<p>{{date}}</p>
+			{{#if actionRequired}}
+			<span class="urgentBubble">URGENT</span>
+			{{/if}}
+		</a>
+		</li>
+	</script>
+	
+</div>

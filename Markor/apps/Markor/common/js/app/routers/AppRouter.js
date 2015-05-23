@@ -32,7 +32,7 @@ define([ 'backbone', 'app/Config', ], function(Backbone, Config) {
     }
 
     // go to index page and init components
-    $.mobile.changePage('pages/backlogCategory.html', {
+    $.mobile.changePage('pages/backlog.html', {
       transition : 'none',
     });
   });

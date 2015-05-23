@@ -1,0 +1,45 @@
+{
+
+	"%label.continue%" : "Continue",
+	"%label.about%" : "About",
+	"%label.contact%" : "Contact",
+	"%label.back%" : "Back",
+	"%label.username%" : "Username",
+	"%label.password%" : "Password",
+	"%label.signin%" : "Sign in",
+	"%label.register%" : "Register",
+	"%label.company.name%" : "[INSERT APP NAME]",
+	"%label.manage%" : "Manage",
+	"%label.messages%" : "Messages",
+	"%label.logout%" : "Log Out",
+	
+	"%splash.text1%" : "This is a \"ready app\" developed only to be used in conjunction with GBS specific engagements, please contact us if you have any questions or concerns regarding usage with this asset.",
+	"%splash.text2%" : "This app is currently under development and some features may not yet work as intended.",
+	"%splash.password.question%" : "What's the password?",
+	
+	"%login.sector%" : "[INSERT APP NAME]",
+	"%login.readyapp%" : "Ready Application",
+	"%login.keeplogin%" : "Keep me logged in",
+	"%login.forgotpassword%" : "Forgot password?",
+	"%login.errorMessage%" : "Error password",
+	
+	"%home.welcome%" : "Welcome",
+	"%home.logout.title%" : "Question",
+	"%home.logout.question%" : "Are you sure you want to log out?",
+	"%title.label.message%" : "Messages",
+	"%title.label.inbox%" : "Inbox",
+	"%title.label.home%" : "Home",
+	
+	"%messages.title%" : "Message Center",
+  "%messages.list.divider%" : "Inbox",
+  "%message.title%" : "Message Detail",
+  "%message.accept.button%" : "Accept Program",
+  "%message.reply.button%" : "Reply",
+  "%message.cancel.button%" : "Cancel",
+  
+	"%menu.label.message%" : "Message",
+	"%menu.label.home%" : "Home",
+	"%menu.label.logout%" : "Logout"
+	
+}
+

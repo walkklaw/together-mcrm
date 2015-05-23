@@ -19,14 +19,21 @@ requirejs.config({
 
   shim : {
     backbone : {
-      deps : [ 'underscore', 'jquery' ], exports : 'Backbone'
-    }, underscore : {
+      deps : [
+        'underscore',
+        'jquery' ],
+      exports : 'Backbone'
+    },
+    underscore : {
       exports : '_'
-    }, react : {
+    },
+    react : {
       exports : 'React'
-    }, localstorage : {
+    },
+    localstorage : {
       deps : [ 'backbone' ]
-    }, slick : {
+    },
+    slick : {
       deps : [ 'jquery' ]
     },
   },
@@ -34,11 +41,15 @@ requirejs.config({
 
 function wlCommonInit() {
 
-  requirejs([ 'jquery', ], function($) {
+  requirejs([
+    'jquery',
+  ], function($) {
     $(document).on('mobileinit', function() {
       // Prevents all anchor click handling including the addition of active
       // button state and alternate link bluring.
       // $.mobile.linkBindingEnabled = false;
+
+      // $.mobile.autoInitializePage = false;
 
       // Disabling this will prevent jQuery Mobile from handling hash
       // changes
@@ -47,9 +58,9 @@ function wlCommonInit() {
       console.log("mobile init!");
 
       // disable selection for any element on the page
-      // document.onselectstart = function() {
-      // return false;
-      // };
+      $(document).on('selectstart', function() {
+        return false;
+      });
 
       // make sure scroll event fires sooner on ios
       // document.addEventListener("touchmove", function() {
@@ -69,8 +80,21 @@ function wlCommonInit() {
       requirejs([ 'app/routers/AppRouter' ]);
     });
 
-    requirejs([ 'jquerymobile', 'less', ], function($mobile, Less) {
-
+    requirejs([
+      'jquerymobile',
+      'less',
+      'backbone' ], function($mobile, Less, Backbone) {
+      var ajax = Backbone.ajax;
+      Backbone.ajax = function(request) {
+        request.dataFilter = function(resp) {
+          try {
+            return JSON.stringify(JSON.parse(resp).data);
+          } catch (e) {
+            throw e;
+          }
+        };
+        ajax.apply(Backbone, arguments);
+      };
     });
   });
 }

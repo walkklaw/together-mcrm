@@ -1,0 +1,11 @@
+{
+
+	"en" : {
+		"language" : "data/localizations/languages/en.json" 
+	},
+	"zh" : {
+	    "language" : "data/localizations/languages/zh.json" 
+	}
+    
+}
+

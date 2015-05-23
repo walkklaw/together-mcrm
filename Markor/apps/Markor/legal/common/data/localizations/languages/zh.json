@@ -1,0 +1,33 @@
+{
+
+	"%label.continue%" : "继续",
+	"%label.about%" : "关于",
+	"%label.contact%" : "联系方式",
+	"%label.back%" : "返回",
+	"%label.username%" : "用户名",
+	"%label.password%" : "密码",
+	"%label.signin%" : "登陆",
+	"%label.register%" : "注册",
+	"%label.company.name%" : "[INSERT APP NAME]",
+	"%label.manage%" : "管理",
+	"%label.messages%" : "消息",
+	"%label.logout%" : "退出",
+	
+	"%splash.text1%" : "这是一个Ready App,仅限于在GBS特定的客户环境中使用，有任何使用问题请联系我们。",
+	"%splash.text2%" : "该应用尚在开发状态，有一些功能可能尚未达到预期。",
+	"%splash.password.question%" : "密码是什么?",
+	
+	"%login.sector%" : "[应用名称]",
+	"%login.readyapp%" : "Ready Application",
+	"%login.keeplogin%" : "自动登陆",
+	"%login.forgotpassword%" : "忘记密码?",
+	
+	"%home.welcome%" : "欢迎",
+	"%home.logout.title%" : "问题",
+	"%home.logout.question%" : "确定要退出吗?",
+    "%title.label.message%" : "消息",
+	"%title.label.inbox%" : "收件箱",	
+	"%sidemenu.label.message%" : "消息",
+	"%sidemenu.label.logout%" : "退出"	
+}
+
