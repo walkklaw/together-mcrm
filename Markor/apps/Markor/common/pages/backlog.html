@@ -7,7 +7,7 @@
 	</div>
 
 	<div data-role="content">
-		<ul data-role="listview" data-inset="false" data-theme="d"
+		<ul id="serviceEvents" data-role="listview" data-inset="false" data-theme="d"
 			data-dividertheme="d">
 			<li>
 				<div class="col-xs-3">
@@ -102,13 +102,13 @@
 				<a href="#" class="ui-btn ui-btn-c {{category}}">{{categoryName}} {{sum}}</a>
 			</div>
 			<div class="col-xs-3">
-				<a href="#" class="ui-btn ui-btn-c terriblelyExceeded {{#gt terriblelyExceeded 0}}empty{{/gt}}">{{terriblelyExceeded}}</a>
+				<a href="#" class="ui-btn ui-btn-c terriblelyExceeded {{#equal terriblelyExceeded 0}}empty{{/equal}}">{{terriblelyExceeded}}</a>
 			</div>
 			<div class="col-xs-3">
-				<a href="#" class="ui-btn ui-btn-c exceeded {{#gt exceeded 0}}empty{{/gt}}">{{exceeded}}</a>
+				<a href="#" class="ui-btn ui-btn-c exceeded {{#equal exceeded 0}}empty{{/equal}}">{{exceeded}}</a>
 			</div>
 			<div class="col-xs-3">
-				<a href="#" class="ui-btn ui-btn-c health {{#gt health 0}}empty{{/gt}}">{{health}}</a>
+				<a href="#" class="ui-btn ui-btn-c health {{#equal health 0}}empty{{/equal}}">{{health}}</a>
 			</div>
 		</li>
 	</script>

@@ -1,18 +1,12 @@
 define([
   'backbone',
+  'model/ServiceEvent',
   'collection/ServiceEvents',
   'util/TemplateUtils',
-  'promise' ], function(Backbone, ServiceEvents, TemplateUtils, P) {
+  'moment',
+  'promise' ], function(Backbone, ServiceEvent, ServiceEvents, TemplateUtils,
+  Moment, P) {
 
-  var categoryNames = {
-    visit: '待家访',
-    draft: '待初稿',
-    finalDraft: '待定稿',
-    placeOrder: '待下单',
-    finish: '待完结',
-    summary: '总计',
-  };
-  
   var BacklogView = Backbone.View.extend({
     events : {
       'tap #shareCar, #passenger' : 'noFeature',
@@ -45,21 +39,53 @@ define([
     },
 
     render : function() {
-      // console.log(ServiceEvents.datas.toJSON());
-      var serviceEvents = this.serviceEvents, template = TemplateUtils
-        .template(this.$('#serviceEvent-template').html());
-      
-      var list = serviceEvents.reduce(function(serviceEvent){
-        var model = serviceEvent.toJSON();
-        model.categoryName = categoryNames[model.category];
+      var serviceEvents = this.state;
+      var template = TemplateUtils.template(this.$('#serviceEvent-template')
+        .html());
+      var categoryNames = ServiceEvent.CATEGORY_NAMES;
+      var templateParams = [];
+
+      _.keys(_.omit(categoryNames, 'summary'))
+        .forEach(
+          function(category) {
+            var templateParam = {
+              category : category,
+              categoryName : categoryNames[category],
+              terriblelyExceeded : 0,
+              exceeded : 0,
+              health : 0,
+            };
+            var categorySEs = serviceEvents.where({
+              category : category
+            });
+            categorySEs
+              .forEach(function(serviceEvent) {
+                // Need some input test
+                serviceEvent = serviceEvent.toJSON();
+                var now, createTime = serviceEvent.createTime,
+                  completeTime = Moment(serviceEvent.completeTime);
+                if (!(completeTime && completeTime.isValid())
+                  && Moment(createTime).isValid()) {
+                  now = Moment().startOf('day');
+                  if (Moment(createTime).add(serviceEvent.suggestedDeadline,
+                    'd') > now) {
+                    templateParam.health++;
+                  } else if (Moment(createTime).add(
+                    serviceEvent.exceededDeadline, 'd') > now) {
+                    templateParam.exceeded++;
+                  } else {
+                    templateParam.terriblelyExceeded++;
+                  }
+                }
+              });
+            templateParams.push(templateParam);
+          });
+      var list = templateParams.reduce(function(htmlStr, templateParam) {
+        return htmlStr + template(templateParam);
       }, '');
-      console.log(template({
-        category : 'test',
-        categoryName : 'test',
-        terriblelyExceeded : 1,
-        exceeded : 2,
-        health : 0,
-      }));
+      this.$('#serviceEvents').append($(list));
+      this.$el.trigger('pagecreate');
+      console.log(list);
       return this;
     },
   });
