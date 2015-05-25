@@ -4,32 +4,21 @@ define([
   'collection/ServiceEvents',
   'util/TemplateUtils',
   'moment',
-  'promise' ], function(Backbone, ServiceEvent, ServiceEvents, TemplateUtils,
-  Moment, P) {
+  'view/BaseView' ], function(Backbone, ServiceEvent, ServiceEvents,
+  TemplateUtils, Moment, BaseView) {
 
-  var BacklogView = Backbone.View.extend({
+  var BacklogView = BaseView.extend({
     events : {
-      'tap #shareCar, #passenger' : 'noFeature',
+      'tap .categoryTitle' : 'showCategory',
       'pagebeforeshow' : 'initViewState',
     },
 
-    noFeature : function() {
-      return this;
+    showCategory : function(event) {
+      BaseView.parameters = $(event.target).attr('data-category');
+      $.mobile.changePage('backlogCategory.html');
     },
 
-    loadColl : function(collection) {
-      return new Promise(function(resolve, reject) {
-        collection.fetch({
-          success : function() {
-            resolve();
-          },
-          error : function() {
-            reject();
-          }
-        });
-      });
-    },
-
+    // Load data then render
     initViewState : function() {
       var serviceEvents = new ServiceEvents(), self = this;
       this.loadColl(serviceEvents).then(function() {
@@ -40,52 +29,45 @@ define([
 
     render : function() {
       var serviceEvents = this.state;
-      var template = TemplateUtils.template(this.$('#serviceEvent-template')
+      var template = TemplateUtils.template(this.$('#serviceEvents-template')
         .html());
       var categoryNames = ServiceEvent.CATEGORY_NAMES;
       var templateParams = [];
+      var summary = {
+        sum : 0,
+        category : 'summary',
+        categoryName : categoryNames['summary'],
+        terriblelyExceeded : 0,
+        exceeded : 0,
+        health : 0,
+      };
 
-      _.keys(_.omit(categoryNames, 'summary'))
-        .forEach(
-          function(category) {
-            var templateParam = {
-              category : category,
-              categoryName : categoryNames[category],
-              terriblelyExceeded : 0,
-              exceeded : 0,
-              health : 0,
-            };
-            var categorySEs = serviceEvents.where({
-              category : category
-            });
-            categorySEs
-              .forEach(function(serviceEvent) {
-                // Need some input test
-                serviceEvent = serviceEvent.toJSON();
-                var now, createTime = serviceEvent.createTime,
-                  completeTime = Moment(serviceEvent.completeTime);
-                if (!(completeTime && completeTime.isValid())
-                  && Moment(createTime).isValid()) {
-                  now = Moment().startOf('day');
-                  if (Moment(createTime).add(serviceEvent.suggestedDeadline,
-                    'd') > now) {
-                    templateParam.health++;
-                  } else if (Moment(createTime).add(
-                    serviceEvent.exceededDeadline, 'd') > now) {
-                    templateParam.exceeded++;
-                  } else {
-                    templateParam.terriblelyExceeded++;
-                  }
-                }
-              });
-            templateParams.push(templateParam);
-          });
+      // Calculate the amount for each category and delay
+      _.keys(_.omit(categoryNames, 'summary')).forEach(function(category) {
+        var result = serviceEvents.getAmountOfDelayTypesForCategory(category);
+        var templateParam = {
+          category : category,
+          categoryName : categoryNames[category],
+          sum : result.health + result.exceeded + result.terriblelyExceeded,
+        };
+        _.extend(templateParam, result);
+        
+        templateParams.push(templateParam);
+
+        // Calculate the amount for summary
+        summary.sum += templateParam.sum;
+        summary.health += templateParam.health;
+        summary.exceeded += templateParam.exceeded;
+        summary.terriblelyExceeded += templateParam.terriblelyExceeded;
+      });
+
+      templateParams.unshift(summary);
+
       var list = templateParams.reduce(function(htmlStr, templateParam) {
         return htmlStr + template(templateParam);
       }, '');
-      this.$('#serviceEvents').append($(list));
-      this.$el.trigger('pagecreate');
-      console.log(list);
+      this.$('#serviceEvents').append($(list)).listview('refresh');
+
       return this;
     },
   });

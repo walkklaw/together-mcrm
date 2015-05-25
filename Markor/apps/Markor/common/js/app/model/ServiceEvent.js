@@ -3,7 +3,8 @@
 define([
   'backbone',
   'app/Config',
-], function(Backbone, Config) {
+  'moment',
+], function(Backbone, Config, Moment) {
 
   var ServiceEvent = Backbone.Model.extend({
 
@@ -18,6 +19,26 @@ define([
       suggestedDeadline : 0,
       exceededDeadline : 0,
     },
+    
+    getDelayAndType: function() {
+      var now = Moment().startOf('day'), createTime, result = {};
+      var serviceEvent = this.toJSON();
+      
+      createTime = serviceEvent.createTime;
+      
+      if (Moment(createTime).add(serviceEvent.suggestedDeadline,
+        'd') > now) {
+        result.delayType = 'health';
+      } else if (Moment(createTime).add(
+        serviceEvent.exceededDeadline, 'd') > now) {
+        result.delayType = 'exceeded';
+      } else {
+        result.delayType = 'terriblelyExceeded';
+      }
+      
+      result.delay = (now - Moment(createTime)) / (3600 * 24 * 1000);
+      return result;
+    },
 
   }, {
     CATEGORY_NAMES : {
@@ -27,7 +48,7 @@ define([
       placeOrder : '待下单',
       finish : '待完结',
       summary : '总计',
-    }
+    },
   });
 
   return ServiceEvent;

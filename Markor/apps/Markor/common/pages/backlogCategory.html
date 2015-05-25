@@ -1,4 +1,4 @@
-<div id="backlogCategory" data-role="page" data-class="HomeView">
+<div id="backlogCategory" data-role="page" data-class="BacklogCategoryView">
 
 	<div data-role="header" data-theme="b" data-position="fixed"
 		data-tap-toggle="false">
@@ -7,54 +7,71 @@
 	</div>
 
 	<div data-role="content">
-		<ul data-role="listview" data-inset="false" data-theme="d"
+		<ul id="serviceEvents" data-role="listview" data-inset="false" data-theme="d"
 			data-dividertheme="d">
-			<li>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c placeOrder">待家访 26</a>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-9">
-					<p>陈女士 远洋万和公馆</p>
-				</div>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">9天</a>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-9">
-					<p>陈女士 远洋万和公馆</p>
-				</div>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">8天</a>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-9">
-					<p>陈女士 远洋万和公馆</p>
-				</div>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">5天</a>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-9">
-					<p>陈女士 远洋万和公馆</p>
-				</div>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c exceeded">3天</a>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-9">
-					<p>陈女士 远洋万和公馆</p>
-				</div>
-				<div class="col-xs-3">
-					<a href="#" class="ui-btn ui-btn-c health">1天</a>
-				</div>
-			</li>
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c placeOrder">待家访 26</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-9"> -->
+<!-- 					<p>陈女士 远洋万和公馆</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">9天</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-9"> -->
+<!-- 					<p>陈女士 远洋万和公馆</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">8天</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-9"> -->
+<!-- 					<p>陈女士 远洋万和公馆</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c terriblelyExceeded">5天</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-9"> -->
+<!-- 					<p>陈女士 远洋万和公馆</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c exceeded">3天</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
+<!-- 			<li> -->
+<!-- 				<div class="col-xs-9"> -->
+<!-- 					<p>陈女士 远洋万和公馆</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-xs-3"> -->
+<!-- 					<a href="#" class="ui-btn ui-btn-c health">1天</a> -->
+<!-- 				</div> -->
+<!-- 			</li> -->
 		</ul>
 	</div>
 
+	<script id="serviceEvents-template" type="text/x-handlebars-template">
+		<li>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c {{category}} categoryTitle">{{categoryName}} {{sum}}</a>
+			</div>
+		</li>
+	</script>
+	<script id="serviceEvent-template" type="text/x-handlebars-template">
+		<li>
+			<div class="col-xs-9">
+				<p>{{name}} {{buildingName}}</p>
+			</div>
+			<div class="col-xs-3">
+				<a href="#" class="ui-btn ui-btn-c {{delayType}}">{{delay}}天</a>
+			</div>
+		</li>
+	</script>
 </div>
