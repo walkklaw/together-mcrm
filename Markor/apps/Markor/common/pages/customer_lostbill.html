@@ -1,0 +1,75 @@
+<div id="customerLostBill" data-role="page">
+	<!--  data-dom-cache="true"> -->
+
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a data-rel="back" data-icon="back" data-role="button" data-iconpos="notext">Back</a>
+		<h1>顾客信息</h1>
+	</div>
+
+	<div data-role="content">
+		<h3>丢单信息</h3>
+		<table class="infoList nostyle">
+			<tbody>
+				<tr>
+					<th>丢单日期</th>
+					<td class="date">
+						<input type="text" name="" id="">
+						<a href="#popupBasic" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext">Add</a>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">丢单原因</th>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<fieldset data-role="controlgroup">
+							<input name="reason" id="another" value="on" checked="checked" type="radio">
+							<label for="another">顾客购买竞争品</label>
+							<hr />
+							<input name="checkbox-1a" id="checkbox-1a" checked="" type="checkbox">
+							<label for="checkbox-1a">交期</label>
+							<input name="checkbox-2a" id="checkbox-2a" type="checkbox">
+							<label for="checkbox-2a">价格/折扣</label>
+							<input name="checkbox-3a" id="checkbox-3a" type="checkbox">
+							<label for="checkbox-3a">风格/品类</label>
+							<input name="checkbox-4a" id="checkbox-4a" type="checkbox">
+							<label for="checkbox-4a">材质/全实木</label>
+							<input name="checkbox-5a" id="checkbox-5a" type="checkbox">
+							<label for="checkbox-5a">品质问题</label>
+							<input name="checkbox-6a" id="checkbox-6a" type="checkbox">
+							<label for="checkbox-6a">其他设计师导向</label>
+							<input name="checkbox-7a" id="checkbox-7a" type="checkbox">
+							<label for="checkbox-7a">专业</label>
+							<input name="checkbox-8a" id="checkbox-8a" type="checkbox">
+							<label for="checkbox-8a">态度</label>
+							<hr />
+							<input name="reason" id="other" value="off" type="radio">
+							<label for="other">在A.R.T其他门店下单</label>
+							<hr />
+							<input name="reason" id="giveup" value="off" type="radio">
+							<label for="giveup">放弃购买家具</label>
+							<hr />
+							<input name="reason" id="noreason" value="off" type="radio">
+							<label for="noreason">原因不明</label>
+						</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div data-role="popup" id="popupBasic">
+			<p><input type="text" name="" id="" placeholder="店长用户名"></p>
+			<p><input type="text" name="" id="" placeholder="店长密码"></p>
+			<p><a data-icon="check" data-role="button">确认</a></p>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#messages"></use></svg><span>消息</span></a></li>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#contact"></use></svg><span>通讯录</span></a></li>
+				<li class="active"><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#app"></use><span>应用</span></a></li>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#my"></use></svg><span>我的</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>

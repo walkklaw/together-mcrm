@@ -1,0 +1,380 @@
+/**** colours ****/
+@color-green: #018282;
+@color-light-blue: #38c;
+@color-blue: #00649d;
+@color-dark-blue: #004266;
+@color-orange: #ff7a01;
+@color-yellow: #ffcf01;
+@color-red: #D9182D;
+@color-black: #000000;
+@color-white: #ffffff;
+@color-gray: #d9d9d9;
+@color-gray-1: #595959;
+@color-gray-2: #dfdfdf;
+@color-text-shadow: #2e2e2f;
+
+/**** string constants ****/
+@dir-images: "../images";
+@dir-theme-images: "../themes/ibm_starter_apps_1.4.2/images/icons-png";
+
+/**** size constants ****/
+@size-desktop: 1200px;
+@size-tablet: 767px;
+@size-phone: 480px;
+
+/**** import all other css / less files ***
+
+@import "overrides_jqm_1.4.2.less";
+*/
+@import "backlog.less";
+@import "backlogCategory.less";
+@import "backlogInputs.less";
+
+/**** fonts ****/
+/*
+@font-face {
+	font-family: GothamCondensedLight;
+	font-weight: normal;
+	src: url('@{dir-fonts}/GothamCond-Light.otf');
+}
+*/
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+	display: table;
+	content: " ";
+}
+.clearfix:after,
+.row:after {
+	clear: both;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+    position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+
+
+/**** fix for css conflicts for google maps ****/
+.map img {
+	max-width: none;
+	height: auto
+}
+
+.map * {
+	box-sizing: content-box;
+}
+/****************************/
+
+/* Worklight container div */
+* {
+	box-sizing: border-box;
+	font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, Arial, sans-serif;
+	text-shadow: none;
+}
+
+.ui-page {
+	min-height: 100%;
+	z-index: 1;
+	text-shadow: none;
+	background: white;
+	padding: 0px;
+	-webkit-box-sizing:content-box;
+	box-sizing: content-box;
+	/*hardware accleration*/
+	// transform: translateZ(0);
+	/*backface-visibility: hidden;  */
+	perspective: 1000;
+}
+.ui-header {
+	.ui-title {
+		font-size: 1.2em;
+		padding: .5em 0;
+	}
+	.ui-btn-left {
+		margin-top: 3px;
+	}
+	.ui-icon-back {
+		border-color: transparent;
+		background-color: transparent;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		&:after {
+			background-image: url(jquerymobile/images/icons-svg/carat-l-black.svg);
+		}
+	}
+	.ui-btn-icon-notext {
+		&:after {
+			background-color: transparent;
+		}
+	}
+}
+.ui-content {
+
+	h1{
+		font-size: 24px;
+	}
+	h2{
+		font-size: 20px;
+	}
+	h3, h4, h5, h6{
+		font-size: 1em;
+	}
+	h3 {
+		margin-top: 0;
+		text-align: center;
+	}
+	/**** split Line ****/
+	hr {
+		height: 1px;
+		border-top:1px solid @color-gray-2;
+	}
+}
+.ui-page-theme-a {
+	.ui-footer {
+		background: @color-gray-1;
+	}
+}
+
+.ui-footer {
+	.ui-navbar {
+		li {
+			float: left;
+			width: 25%;
+			font-size: 0.75em;
+			text-align: center;
+
+			&.active {
+				.ui-link {
+					color: @color-light-blue;
+				}
+				.barIcon {
+					fill:@color-light-blue;
+				}
+			}
+			.barIcon {
+				margin: 0 auto;
+				width: 2.5em;
+				height: 2.5em;
+				display: block;
+				fill:@color-gray-2;
+			}
+			.ui-link {
+				color: @color-white;
+				background: none;
+				border-left-width: 0;
+				border-right-width: 0;
+			}
+		}
+	}
+}
+
+
+
+table.infoList {
+	font-size: 0.875em;
+	border-collapse: collapse;
+	width: 100%;
+	th {
+		width: 5em;
+		vertical-align: top;
+		padding-top: 1.2em;
+		text-align: left;
+	}
+	.tel {
+		.ui-input-text {
+			width: 80%;
+			display: inline-block;
+		}
+		.ui-icon-plus {
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 0.2em;
+		}
+	}
+	.ui-radio, .ui-checkbox{
+		label {
+			font-size: 0.875em;
+		}
+	}
+}
+
+table.nostyle {
+	fieldset:not(.ui-controlgroup-horizontal) {
+		.ui-radio, .ui-checkbox {
+			.ui-btn {
+				background: #FFF;
+				border-color: transparent;
+			}
+		}
+		.ui-checkbox {
+			display: inline-block;
+			width: 49%;
+		}
+	}
+}
+#customerLostBill {
+	table.infoList {
+		.date {
+			.ui-input-text {
+				width: 80%;
+				display: inline-block;
+			}
+			.ui-icon-check {
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 0.2em;
+			}
+		}
+	}
+}
+#customerSearch {
+	.searchlist {
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				padding: 0.5em;
+				border-bottom: 1px solid @color-gray-2;
+
+				p {
+					font-size: 0.8em;
+					margin: 0.5em 0;
+				}
+			}
+		}
+	}
+}
+#customerRecord {
+	.record {
+		margin: 3em;
+		.ui-link {
+			width: 5em;
+			height: 5em;
+			margin: 0 auto;
+			padding: 3em;
+			text-indent: -9999999px;
+		}
+		.ui-icon-time {
+			&:after {
+				background-color: transparent;
+				left: 50%;
+				top: 50%;
+				margin-top: -2em;
+				margin-left: -2em;
+				width: 4em;
+				height: 4em;
+				background-image: url(../images/clock.svg);
+				background-size: 3em;
+			}
+		}
+	}
+	.startTime, .endTime {
+		// text-align: center;
+		width: 60%;
+		margin: 0.5em auto;
+	}
+	.cusNum {
+		text-align: center;
+		padding: 1px;
+		.ui-input-text {
+			width: 50%;
+			display: inline-block;
+		}
+		.ui-icon-carat-r {
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 0.5em;
+			margin-top: 0.6em;
+		}
+	}
+	.ui-icon-forbidden {
+		width: 60%;
+		margin: 2em auto;
+	}
+}
+#customerHouse {
+	table.infoList {
+		.ui-checkbox, .ui-radio {
+			display: inline-block;
+			width: 30%;
+		}
+		fieldset.ui-controlgroup-horizontal {
+			.ui-radio {
+				width: auto;
+			}
+		}
+	}
+}
+#dataStatistics {
+	.ui-btn {
+		font-size: 0.875em;
+	}
+	.row {
+		margin-bottom: 15px;
+	}
+}
+#customerBill {
+	table.infoList {
+		th {
+			width: 6.5em;
+		}
+	}
+}
+#toDo {
+	table.infoList {
+		tr {
+			border-bottom: 1px solid @color-gray;
+
+			&:first-child {
+				border-bottom: 1px solid @color-gray-1;
+			}
+		}
+	}
+}
