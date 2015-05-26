@@ -130,6 +130,10 @@
 	/*backface-visibility: hidden;  */
 	perspective: 1000;
 }
+.ui-content .ui-navbar {
+	margin: -1em -1em 0;
+	width: 100%;
+}
 .ui-header {
 	.ui-title {
 		font-size: 1.2em;
@@ -198,8 +202,8 @@
 			}
 			.barIcon {
 				margin: 0 auto;
-				width: 2.5em;
-				height: 2.5em;
+				width: 2em;
+				height: 2em;
 				display: block;
 				fill:@color-gray-2;
 			}
@@ -208,6 +212,7 @@
 				background: none;
 				border-left-width: 0;
 				border-right-width: 0;
+				padding: .7em 1em .5em;
 			}
 		}
 	}
@@ -224,17 +229,6 @@ table.infoList {
 		vertical-align: top;
 		padding-top: 1.2em;
 		text-align: left;
-	}
-	.tel {
-		.ui-input-text {
-			width: 80%;
-			display: inline-block;
-		}
-		.ui-icon-plus {
-			display: inline-block;
-			vertical-align: top;
-			margin-left: 0.2em;
-		}
 	}
 	.ui-radio, .ui-checkbox{
 		label {
@@ -254,6 +248,19 @@ table.nostyle {
 		.ui-checkbox {
 			display: inline-block;
 			width: 49%;
+		}
+	}
+}
+#customerBaseInfo {
+	.tel {
+		.ui-input-text {
+			width: 80%;
+			display: inline-block;
+		}
+		.ui-icon-plus {
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 0.2em;
 		}
 	}
 }
@@ -341,9 +348,20 @@ table.nostyle {
 }
 #customerHouse {
 	table.infoList {
+		tr:nth-child(-n+3) {
+			th {
+				padding-top: 2.7em;
+			}
+		}
+		th {
+			width: 6em;
+		}
+		td {
+			padding-top: 1.2em;
+		}
 		.ui-checkbox, .ui-radio {
 			display: inline-block;
-			width: 30%;
+			width: 32%;
 		}
 		fieldset.ui-controlgroup-horizontal {
 			.ui-radio {

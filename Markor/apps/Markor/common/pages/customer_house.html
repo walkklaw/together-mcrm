@@ -5,7 +5,12 @@
 		<a data-rel="back" data-icon="back" data-role="button" data-iconpos="notext">Back</a>
 		<h1>顾客信息</h1>
 	</div>
-
+	<div data-role="navbar">
+		<ul>
+			<li><a href="customer_house.html" class="ui-btn-active">基本信息</a></li>
+			<li><a href="#">需求信息</a></li>
+		</ul>
+	</div>
 	<div data-role="content">
 		<h3>房屋信息</h3>
 		<table class="infoList nostyle">
@@ -13,27 +18,25 @@
 				<tr>
 					<th>开发商</th>
 					<td>大华集团</td>
+				</tr>
+				<tr>
 					<th>楼盘名称</th>
 					<td>锦绣华城</td>
 				</tr>
 				<tr>
 					<th>送货地址</th>
-					<td colspan="3">春柳路291号</td>
-				</tr>
-				<tr>
-					<th>房屋面积</th>
-					<td>131</td>
-					<th>预算</th>
-					<td>25,000</td>
+					<td>春柳路291号</td>
 				</tr>
 				<tr>
 					<th>交房日期</th>
 					<td>2014/12/32</td>
+				</tr>
+				<tr>
 					<th>入住日期</th>
 					<td>2015/05/22</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="2">
 						<fieldset data-role="controlgroup">
 							<input name="style" id="s1" value="" type="radio">
 							<label for="s1">公寓</label>
@@ -61,8 +64,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">是否有硬装设计师</td>
-					<td colspan="2">
+					<td>是否有硬装设计师</td>
+					<td>
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<input name="design" id="yes" value="on" checked="checked" type="radio">
 							<label for="yes">是</label>
@@ -74,63 +77,10 @@
 				<tr>
 					<td>装修公司</td>
 					<td>东易日盛</td>
+				</tr>
+				<tr>
 					<td>硬装设计师</td>
 					<td>王哲</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<p>购买意向</p>
-						<fieldset data-role="controlgroup">
-							<input name="checkbox-1a" id="checkbox-1a" type="checkbox">
-							<label for="checkbox-1a">客厅</label>
-							<input name="checkbox-2a" id="checkbox-2a" type="checkbox">
-							<label for="checkbox-2a">餐厅</label>
-							<input name="checkbox-3a" id="checkbox-3a" type="checkbox">
-							<label for="checkbox-3a">卧室</label>
-							<input name="checkbox-4a" id="checkbox-4a" type="checkbox">
-							<label for="checkbox-4a">儿童房</label>
-							<input name="checkbox-5a" id="checkbox-5a" type="checkbox">
-							<label for="checkbox-5a">老人房</label>
-							<input name="checkbox-6a" id="checkbox-6a" type="checkbox">
-							<label for="checkbox-6a">书房</label>
-							<input name="checkbox-7a" id="checkbox-7a" type="checkbox">
-							<label for="checkbox-7a">其他</label>
-							<input name="checkbox-8a" id="checkbox-8a" type="checkbox">
-							<label for="checkbox-8a">态度</label>
-						</fieldset>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<p>风格偏好</p>
-						<fieldset data-role="controlgroup">
-							<input name="checkbox-9a" id="checkbox-9a" type="checkbox">
-							<label for="checkbox-9a">经典</label>
-							<input name="checkbox-10a" id="checkbox-10a" type="checkbox">
-							<label for="checkbox-10a">传统</label>
-							<input name="checkbox-11a" id="checkbox-11a" type="checkbox">
-							<label for="checkbox-11a">休闲</label>
-							<input name="checkbox-12a" id="checkbox-12a" type="checkbox">
-							<label for="checkbox-12a">现代</label>
-							<input name="checkbox-13a" id="checkbox-13a" type="checkbox">
-							<label for="checkbox-13a">乡村</label>
-						</fieldset>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<p>购买大类</p>
-						<fieldset data-role="controlgroup">
-							<input name="checkbox-14a" id="checkbox-14a" type="checkbox">
-							<label for="checkbox-14a">实木</label>
-							<input name="checkbox-15a" id="checkbox-15a" type="checkbox">
-							<label for="checkbox-15a">沙发</label>
-							<input name="checkbox-16a" id="checkbox-16a" type="checkbox">
-							<label for="checkbox-16a">饰品</label>
-							<input name="checkbox-17a" id="checkbox-17a" type="checkbox">
-							<label for="checkbox-17a">床垫</label>
-						</fieldset>
-					</td>
 				</tr>
 			</tbody>
 		</table>

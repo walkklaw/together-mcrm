@@ -1,0 +1,66 @@
+<div id="customerTrack" data-role="page">
+	<!--  data-dom-cache="true"> -->
+
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a data-rel="back" data-icon="back" data-role="button" data-iconpos="notext">Back</a>
+		<h1>顾客信息</h1>
+	</div>
+	<div data-role="navbar">
+		<ul>
+			<li><a href="customer_house.html" class="ui-btn-active">基本信息</a></li>
+			<li><a href="#">需求信息</a></li>
+		</ul>
+	</div>
+	<div data-role="content">
+		<h3>跟踪记录</h3>
+		<table class="infoList nostyle">
+			<tbody>
+				<tr>
+					<th>跟踪事项</th>
+					<td>
+						<select name="select-choice-1" id="select-choice-1">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+							<option value="">4</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>跟踪方式</th>
+					<td>
+						<select name="select-choice-2" id="select-choice-2">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+							<option value="">4</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>备&emsp;&emsp;注</th>
+					<td><textarea cols="40" rows="8" name="textarea" id="textarea"></textarea></td>
+				</tr>
+				<tr>
+					<th>下次跟踪日期</th>
+					<td>2015/05/22</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button class="ui-btn">保存</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#messages"></use></svg><span>消息</span></a></li>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#contact"></use></svg><span>通讯录</span></a></li>
+				<li class="active"><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#app"></use><span>应用</span></a></li>
+				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#my"></use></svg><span>我的</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
