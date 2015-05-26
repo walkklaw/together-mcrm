@@ -1,40 +1,45 @@
 /**** fix for css conflicts for google maps ****/
 #backlog {
-	
+
 	li {
-		padding: 5px;
-		
-		> div:first-child {
+		a {
+			border-radius: 50%;
+			width: 2em;
+			height: 2em;
+			display: block;
+			padding: 0;
+			text-align: center;
+			line-height: 2;
+		}
+		.col-xs-3 {
+			text-align: center;
+		}
+		.row .col-xs-3:first-child {
 			margin-top: 5px;
-			padding-left: 0;
-			
+			// padding-left: 0;
+
 			a {
-				width: 5em;
+				width: 100%;
+				margin: 5px;
 				border-radius: 5px;
 				padding: 0;
+				font-size: 0.8em;
+				line-height: 2;
 			}
 		}
-	
-		> div:nth-child(n+2) {
-			a {
-				border-radius: 50%;
-				width: 2em;
-				height: 2em;
-				line-height: 0.5;
-				padding-left: 8px;
-			}
-		}
+
 	}
-	
-	li:first-child {
-		border-bottom-width: 2px;
-		padding-top: 20px;
-		
-		div:nth-child(n+2) > a {
-			width: 2.5em;
-			height: 2.5em;
-			line-height: 1;
-			padding-left: 10px;
-		}
-	}
+
+	// li:first-child {
+	// 	border-bottom-width: 2px;
+	// 	// padding-top: 20px;
+
+	// 	div:nth-child(n+2) > a {
+	// 		width: 2.5em;
+	// 		height: 2.5em;
+	// 		line-height: 1;
+	// 		padding-left: 10px;
+	// 		text-align: center;
+	// 	}
+	// }
 }
