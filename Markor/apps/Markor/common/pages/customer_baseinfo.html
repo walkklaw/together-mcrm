@@ -5,7 +5,12 @@
 		<a data-rel="back" data-icon="back" data-role="button" data-iconpos="notext">Back</a>
 		<h1>顾客信息</h1>
 	</div>
-
+	<div data-role="navbar">
+		<ul>
+			<li><a href="customer_house.html" class="ui-btn-active">基本信息</a></li>
+			<li><a href="#">需求信息</a></li>
+		</ul>
+	</div>
 	<div data-role="content">
 		<h3>基本信息</h3>
 		<table class="infoList">
@@ -60,6 +65,11 @@
 					<th>备&emsp;&emsp;注</th>
 					<td>
 						<textarea name="" id="" cols="30" rows="10"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button class="ui-btn">保存</button>
 					</td>
 				</tr>
 			</tbody>

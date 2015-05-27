@@ -1,5 +1,5 @@
 /**** colours ****/
-@color-green: #018282;
+@color-green: #92d014;
 @color-light-blue: #38c;
 @color-blue: #00649d;
 @color-dark-blue: #004266;
@@ -394,5 +394,108 @@ table.nostyle {
 				border-bottom: 1px solid @color-gray-1;
 			}
 		}
+	}
+}
+#customerRequirement {
+	.ui-link {
+		font-size: 0.875em;
+	}
+	.requireList {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0.875em;
+
+		li {
+			padding: 8px 4px;
+			border-bottom: 1px dashed @color-gray;
+
+			.col-xs-4 {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		}
+	}
+}
+#customerProcess {
+	.col-xs-6 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.processInfo {
+		font-size: 0.875em;
+
+		tr {
+			td:first-child {
+				width: 50%;
+			}
+		}
+	}
+	.col-xs-6:first-child {
+		padding-right: 1em;
+	}
+	.col-xs-6:last-child {
+		border-left: 1px solid @color-gray;
+		padding-left: 1.4em;
+	}
+	.total {
+		width: 2em;
+		height: 2em;
+		border-radius: 50%;
+		background: @color-red;
+		color: @color-white;
+		text-align: center;
+		line-height: 2;
+		position: absolute;
+		top: 0;
+		left: -1em;
+	}
+	.processContent {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0.875em;
+
+		li {
+			margin-bottom: 2em;
+			position: relative;
+			span {
+				font-size: 0.75em;
+				display: block;
+			}
+			&:after {
+				content: "";
+				width: 0.9em;
+				height: 0.9em;
+				border-width: 2px;
+				border-style: solid;
+				border-radius: 50%;
+				background: @color-white;
+				position: absolute;
+				top: 4px;
+				left: -31px;
+			}
+			&:first-child:after {
+				border: none;
+				background: none;
+			}
+		}
+	}
+	.done:after {
+		border-color: @color-gray-1;
+	}
+	.ontime:after {
+		border-color: @color-green;
+	}
+	.delay:after {
+		border-color: @color-red;
+	}
+	.customerName {
+		margin-bottom: 15px;
+	}
+	.ui-icon-plus {
+		display: inline-block;
+		margin: 0;
+		vertical-align: middle;
 	}
 }
