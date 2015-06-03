@@ -350,7 +350,7 @@ table.nostyle {
 	table.infoList {
 		tr:nth-child(-n+3) {
 			th {
-				padding-top: 2.7em;
+				// padding-top: 2.7em;
 			}
 		}
 		th {
@@ -422,6 +422,14 @@ table.nostyle {
 		padding-left: 0;
 		padding-right: 0;
 	}
+	.viewPoint {
+		font-size: 0.875em;
+		float: right;
+		margin-top: -50px;
+		.ui-radio label {
+			font-size: 0.875em;
+		}
+	}
 	.processInfo {
 		font-size: 0.875em;
 
@@ -490,6 +498,15 @@ table.nostyle {
 	.delay:after {
 		border-color: @color-red;
 	}
+	.dashed.done:after {
+		background-color: @color-gray-1;
+	}
+	.dashed.ontime:after {
+		background-color: @color-green;
+	}
+	.dashed.delay:after {
+		background-color: @color-red;
+	}
 	.customerName {
 		margin-bottom: 15px;
 	}
@@ -497,5 +514,11 @@ table.nostyle {
 		display: inline-block;
 		margin: 0;
 		vertical-align: middle;
+	}
+}
+#customerTrack {
+	padding: 20px;
+	h3 {
+		text-align: center;
 	}
 }
