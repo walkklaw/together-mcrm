@@ -15,6 +15,13 @@ define({
     'view/CustomerLostbillView',
   ],
 
+  ENTRY_PAEGS : [
+    'customer_record',
+    'backlog',
+    'customer_search',
+    'data_statistics',
+  ],
+
   // API_URL: "http://o4bs.com:9999",
   API_URL : "http://localhost:4600",
 });

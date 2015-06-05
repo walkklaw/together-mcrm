@@ -27,12 +27,17 @@ define([ 'backbone', 'app/Config', ], function(Backbone, Config) {
 
   // Load all view classes
   require(configViewClass, function() {
+    var search = location.search;
+    var page = search.slice(search.indexOf('=') + 1);
+    var entrys = Config.ENTRY_PAEGS;
+    page = entrys.indexOf(page) >= 0 ? page : entrys[0];
+    
     for (var i = 0, len = configViewClass.length; i < len; i++) {
       viewClasses[configViewClass[i]] = arguments[i];
     }
-
+    
     // go to index page and init components
-    $.mobile.changePage('pages/home.html', {
+    $.mobile.changePage('pages/' + page + '.html', {
       transition : 'none',
     });
   });
