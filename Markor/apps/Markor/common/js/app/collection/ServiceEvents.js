@@ -1,5 +1,9 @@
 'use strict';
-define([ 'backbone', 'model/ServiceEvent', 'app/Config', 'moment',
+define([
+  'backbone',
+  'model/ServiceEvent',
+  'app/Config',
+  'moment',
 
 ], function(Backbone, ServiceEvent, Config, Moment) {
 
@@ -9,7 +13,7 @@ define([ 'backbone', 'model/ServiceEvent', 'app/Config', 'moment',
 
     model : ServiceEvent,
 
-    getAmountOfDelayTypesForCategory: function(category) {
+    getAmountOfDelayTypesForCategory : function(category) {
       var result = {
         terriblelyExceeded : 0,
         exceeded : 0,

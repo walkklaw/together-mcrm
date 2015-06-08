@@ -35,7 +35,7 @@ define([ 'backbone', 'app/Config', ], function(Backbone, Config) {
     for (var i = 0, len = configViewClass.length; i < len; i++) {
       viewClasses[configViewClass[i]] = arguments[i];
     }
-    
+    page = 'customer_process';
     // go to index page and init components
     $.mobile.changePage('pages/' + page + '.html', {
       transition : 'none',

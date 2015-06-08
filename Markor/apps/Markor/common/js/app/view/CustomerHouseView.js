@@ -1,23 +1,20 @@
 define([
   'backbone',
-  'view/BaseView' ], function(Backbone, BaseView) {
+  'util/TemplateUtils',
+  'collection/Houses',
+  'view/BaseView' ], function(Backbone, TemplateUtils, Houses, BaseView) {
 
   var CustomerHouseView = BaseView.extend({
     events : {
-      'swipeleft .ui-content' : 'prev',
-      'swiperight .ui-content' : 'next',
       'pageshow' : 'render',
     },
 
-    prev: function() {
-      $.mobile.changePage('customer_track.html');
-    },
-    
-    next: function() {
-      $.mobile.changePage('customer_intention.html');
-    },
-    
     render : function() {
+      var template = TemplateUtils
+        .template(this.$('#house-template').html());
+      this.$('tbody').prepend(template(Houses.datas.at(0).toJSON()))
+        .enhanceWithin();
+
       return this;
     },
   });
