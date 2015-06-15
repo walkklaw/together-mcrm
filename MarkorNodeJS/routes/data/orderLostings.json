@@ -1,0 +1,22 @@
+[
+  {
+    "id" : 1,
+    "lostingDate" : "2015-07-01",
+    "reason" : "顾客购买竞品",
+    "competitorPurchaseReason" : "交期",
+    "requirementId" : 4
+  },
+  {
+    "id" : 2,
+    "lostingDate" : "2015-07-02",
+    "reason" : "放弃购买家具",
+    "competitorPurchaseReason" : "",
+    "requirementId" : 5
+  },
+  {
+    "id" : 3,
+    "lostingDate" : "2015-07-03",
+    "reason" : "原因不明",
+    "competitorPurchaseReason" : "",
+    "requirementId" : 6
+  } ]
