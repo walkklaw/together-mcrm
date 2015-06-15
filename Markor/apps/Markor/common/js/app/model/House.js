@@ -10,18 +10,15 @@ define([
     urlRoot : Config.API_URL + '/houses',
 
     defaults : {
-      'developer': '',
-      'address': '',
-      'building': '',
-      'deliveryDate': '',
-      'checkInDate': '',
-      'type': '',
-      'decorationType': '',
-      'decorationProgress': '',
-      'state': '',
-      'decorationCompany': '',
-      'designer': '',
-      'requirementId': 0
+      developer : '',
+      address : '',
+      building : '',
+      deliveryDate : '',
+      checkInDate : '',
+      type : '',
+      decorationCompany : '',
+      designer : '',
+      requirementId : 0,
     },
     
   });

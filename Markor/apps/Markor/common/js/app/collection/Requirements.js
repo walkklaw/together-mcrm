@@ -14,46 +14,52 @@ define([
 
   });
 
-  Requirements.datas = new Customers([ {
-    'createTime' : '2015-06-05',
-    'store' : '大连XX店',
-    'users' : [ {
-      'userId' : 1,
-      'role' : 'Primary'
-    }, {
-      'userId' : 2,
-      'role' : 'Secondary'
-    } ],
-    'earnest' : 0,
-    'predictedSale' : 0,
-    'customerId' : 1
-  }, {
-    'createTime' : '2015-06-05',
-    'store' : '长沙XX店',
-    'users' : [ {
-      'userId' : 2,
-      'role' : 'Primary'
-    }, {
-      'userId' : 1,
-      'role' : 'Secondary'
-    } ],
-    'earnest' : 0,
-    'predictedSale' : 0,
-    'customerId' : 1
-  }, {
-    'createTime' : '2015-06-05',
-    'store' : '大连XX店',
-    'users' : [ {
-      'userId' : 1,
-      'role' : 'Primary'
-    }, {
-      'userId' : 2,
-      'role' : 'Secondary'
-    } ],
-    'earnest' : 0,
-    'predictedSale' : 0,
-    'customerId' : 1
-  } ]);
+  Requirements.datas = new Customers([
+    {
+      "id" : 1,
+      "createDate" : "2015-06-05",
+      "store" : 1,
+      "primaryUser" : 1,
+      "secondaryUsers" : [
+        2,
+        3 ],
+      "earnest" : 0,
+      "predictedSale" : 0,
+      "orderSum" : 1000,
+      "status" : "待定稿",
+      "customerId" : 1,
+      "creater" : 1
+    },
+    {
+      "id" : 2,
+      "createDate" : "2015-04-05",
+      "store" : 2,
+      "primaryUser" : 2,
+      "secondaryUsers" : [
+        3,
+        1 ],
+      "earnest" : 0,
+      "predictedSale" : 0,
+      "orderSum" : 2000,
+      "status" : "待家访",
+      "customerId" : 2,
+      "creater" : 2
+    },
+    {
+      "id" : 3,
+      "createDate" : "2015-05-05",
+      "store" : 3,
+      "primaryUser" : 3,
+      "secondaryUsers" : [
+        1,
+        2 ],
+      "earnest" : 0,
+      "predictedSale" : 0,
+      "orderSum" : 1500,
+      "status" : "待定稿",
+      "customerId" : 3,
+      "creater" : 3
+    } ]);
 
   return Requirements;
 });

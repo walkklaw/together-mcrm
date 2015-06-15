@@ -10,12 +10,16 @@ define([
     urlRoot : Config.API_URL + '/requirements',
 
     defaults : {
-      createTime: '',
-      store: '',
-      users: [],
-      earnest: 0,
-      predictedSale: 0,
-      customerId: 0
+      createDate : '',
+      store : 0,
+      primaryUser : 0,
+      secondaryUsers : [],
+      earnest : 0,
+      predictedSale : 0,
+      orderSum : 0,
+      status : '',
+      customerId : 0,
+      creater : 0,
     },
     
   });

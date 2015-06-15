@@ -10,15 +10,14 @@ define([
     urlRoot : Config.API_URL + '/customers',
 
     defaults : {
-      name: '',
-      gender: '',
-      phones: [],
-      age: 1,
-      birthday: '',
-      family: '',
-      characteristic: '',
-      comment: [],
-      userId: 0,
+      name : '',
+      gender : '',
+      phones : [],
+      age : 0,
+      birthday : '',
+      family : '',
+      characteristic : '',
+      comment : [],
     },
     
   });
