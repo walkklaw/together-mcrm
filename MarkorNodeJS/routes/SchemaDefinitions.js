@@ -1,4 +1,5 @@
 module.exports = {
+
   customers : {
     id : Number,
     name : String,
@@ -106,4 +107,5 @@ module.exports = {
     role : String,
     storeId : Number,
   },
+
 };

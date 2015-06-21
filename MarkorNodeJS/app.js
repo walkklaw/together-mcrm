@@ -1,39 +1,24 @@
 var express = require('express');
-var utils = require('./routes/utils/utils');
-var dbUtils = require('./routes/utils/dbUtils');
+var MongooseUtils = require('./routes/MongooseUtils');
+
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 // var host = (process.env.VCAP_APP_HOST || '12.139.41.106');
 var port = (process.env.VCAP_APP_PORT || 4600);
 var app = express();
 
-function registerBasicRestApis() {
-  var RestApiGenerator = require('./routes/utils/RestApiGenerator');
-  var Schemas = require('./routes/Schemas');
-  var apiObjs = [];
-  
-  // Register restful apis
-  for(var docName in Schemas) {
-    apiObjs.push(RestApiGenerator.generate(docName, Schemas[docName], app));
-  }
-  return apiObjs;
+function registerBasicRestApis(Models) {
+  require('./routes/BasicApiRegister').registerBasicApis(app, Models);
 }
 
-function registerInitDBApi(modelAndPaths) {
-  app.get('/initDB', function(req, res){
-    require('./routes/utils/DataUtils').initDB(modelAndPaths, function suss(){
+function registerInitDBApi(Models) {
+  app.get('/initDB', function(req, res) {
+    require('./routes/DataUtils').initDB(Models, function suss() {
       res.write('Init DB successfully!');
       res.end();
     }, function sendRes() {
       res.write('Init DB failure!');
       res.end();
     });
-  });
-}
-
-function createModelAndPaths(apiObjs){
-  return apiObjs.map(function(apiObj){
-    apiObj.fileName = apiObj.docName;
-    return apiObj;
   });
 }
 
@@ -45,10 +30,14 @@ app.configure(function() {
 });
 
 // init mongodb and start listen
-dbUtils.initMongoDBInstance(function() {
-  var apiObjs = registerBasicRestApis();
-  registerInitDBApi(createModelAndPaths(apiObjs));
-  
+MongooseUtils.initConnection(function() {
+  var schemaDefinitions = require('./routes/SchemaDefinitions');
+  var Schemas = MongooseUtils.createSchemas(schemaDefinitions, true);
+  var Models = MongooseUtils.createModels(Schemas);
+
+  registerBasicRestApis(Models);
+  registerInitDBApi(Models);
+
   app.listen(port, host);
   console.log('App started on port ' + port);
 });
