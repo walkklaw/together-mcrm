@@ -1,6 +1,5 @@
 [
   {
-    "id" : 1,
     "liftDoorSize" : "1米",
     "staircaseDoorSize" : "1米",
     "houseDoorSize" : "1.5米",
@@ -14,7 +13,6 @@
     "requirementId" : 1
   },
   {
-    "id" : 2,
     "liftDoorSize" : "1米",
     "staircaseDoorSize" : "1米",
     "houseDoorSize" : "1.5米",
@@ -28,7 +26,6 @@
     "requirementId" : 2
   },
   {
-    "id" : 3,
     "liftDoorSize" : "1米",
     "staircaseDoorSize" : "1米",
     "houseDoorSize" : "1.5米",

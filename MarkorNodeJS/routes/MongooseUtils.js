@@ -17,26 +17,27 @@ exports.initConnection = function(success) {
     success();
   });
 
-  autoIncrement.initialize(connection);
-
   mongoose.connect(path);
+  
+  autoIncrement.initialize(connection);
 
   return this;
 };
 
-//Schemas: {name: mongoose schema}
+// Schemas: {name: mongoose schema}
 exports.createModels = function(Schemas) {
   var models = {}, connection = mongoose.connection, name;
-  for(name in Schemas) {
+  for (name in Schemas) {
     models[name] = connection.model(name, Schemas[name]);
   }
   return models;
 };
 
-//schemaDefinitions: [{name: object(K-V pair)}]
-exports.createSchemas = function createSchemas(schemaDefinitions, isAutoIncrement) {
+// schemaDefinitions: [{name: object(K-V pair)}]
+exports.createSchemas = function createSchemas(schemaDefinitions,
+  isAutoIncrement) {
   var schemas = {}, name;
-  
+
   for (name in schemaDefinitions) {
     schemas[name] = new Schema(schemaDefinitions[name]);
   }
@@ -45,8 +46,7 @@ exports.createSchemas = function createSchemas(schemaDefinitions, isAutoIncremen
     for (name in schemas) {
       schemas[name].plugin(autoIncrement.plugin, {
         model : name,
-        field : 'id',
-        startAt : 1
+        startAt : 1,
       });
     }
   }

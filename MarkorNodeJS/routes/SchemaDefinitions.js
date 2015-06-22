@@ -1,7 +1,6 @@
 module.exports = {
 
   customers : {
-    id : Number,
     name : String,
     gender : String,
     phones : [],
@@ -13,15 +12,13 @@ module.exports = {
   },
 
   cutomerRecords : {
-    id : Number,
-    userId : Number,
+    userId : { type: Number, ref: 'users' },
     start : String,
     end : String,
     isEffective : Boolean,
   },
 
   deliveryIntentions : {
-    id : Number,
     liftDoorSize : String,
     staircaseDoorSize : String,
     houseDoorSize : String,
@@ -32,80 +29,75 @@ module.exports = {
     needHangingDecoration : Boolean,
     floor : Number,
     hangingDecorationComment : String,
-    requirementId : Number,
+    requirementId : { type: Number, ref: 'requirements' },
   },
 
   houses : {
-    id : Number,
     developer : String,
     address : String,
     building : String,
-    deliveryDate : String,
-    checkInDate : String,
+    deliveryDate : Date,
+    checkInDate : Date,
     type : String,
     decorationCompany : String,
     designer : String,
-    requirementId : Number,
+    requirementId : { type: Number, ref: 'requirements' },
   },
 
   orderLostings : {
-    id : Number,
-    lostingDate : String,
+    lostingDate : Date,
     reason : String,
     competitorPurchaseReason : String,
-    requirementId : Number,
+    requirementId : { type: Number, ref: 'requirements' },
   },
 
   perchaseIntentions : {
-    id : Number,
     roomPlanning : String,
     style : String,
     category : String,
     series : String,
-    requirementId : Number,
+    requirementId : { type: Number, ref: 'requirements' },
   },
 
   requirements : {
-    id : Number,
+    level : String,
     createDate : Date,
-    store : Number,
-    primaryUser : Number,
+    store : { type: Number, ref: 'stores' },
+    primaryUser : { type: Number, ref: 'users' },
     secondaryUsers : [],
     earnest : Number,
     predictedSale : Number,
     orderSum : Number,
     status : String,
-    customerId : Number,
-    creater : Number,
+    customerId : { type: Number, ref: 'customers' },
+    creater : { type: Number, ref: 'users' },
   },
 
   stores : {
-    id : Number,
     city : String,
     address : String,
     alliance : String,
   },
 
   trackInfos : {
-    id : Number,
     level : String,
     eventType : String,
     trackMethod : String,
     tractString : String,
     comment : [],
-    nextTractTime : String,
+    nextTractTime : Date,
     attachment : [],
     orderSum : Number,
     orderSerial : String,
     plannedString : String,
     detail : String,
-    requirementId : Number,
+    requirementId : { type: Number, ref: 'requirements' },
   },
 
   users : {
-    id : Number,
+    name : String,
     role : String,
-    storeId : Number,
+    storeId : { type: Number, ref: 'stores' },
   },
-
+  
 };

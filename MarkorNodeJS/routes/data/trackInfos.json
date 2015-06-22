@@ -1,6 +1,5 @@
 [
   {
-    "id" : 1,
     "level" : "A",
     "eventType" : "家访",
     "trackMethod" : "",
@@ -19,7 +18,6 @@
     "requirementId" : 1
   },
   {
-    "id" : 2,
     "level" : "B",
     "eventType" : "初稿",
     "trackMethod" : "",
@@ -38,7 +36,6 @@
     "requirementId" : 2
   },
   {
-    "id" : 3,
     "level" : "C",
     "eventType" : "定稿",
     "trackMethod" : "",

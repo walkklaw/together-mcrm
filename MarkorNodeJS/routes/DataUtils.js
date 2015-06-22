@@ -5,14 +5,14 @@ function insertDataForModel(model, json) {
   model.collection.drop();
   
   return new Promise(function (fulfill, reject){
-    model.collection.insert(json, {
-      w : 1
-    }, function(err, result) {
-      if (err) {
-        reject && reject(err);
-      } else {
-        fulfill && fulfill(result);
-      }
+    model.resetCount(function(err, nextCount){
+      model.create(json, function(err, result) {
+        if (err) {
+          reject && reject(err);
+        } else {
+          fulfill && fulfill(result);
+        }
+      });
     });
   });
 }

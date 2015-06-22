@@ -1,14 +1,24 @@
-var utils = require('./ResponseUtils');
+var ResponseUtils = require('./ResponseUtils');
+
+exports.commonCallback = function(res, handleResult) {
+  return function(err, result) {
+    if (!err) {
+      ResponseUtils.sendCorrectMessage(res, handleResult(result));
+    } else {
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
+    }
+  };
+};
 
 //Save Operation Callback function
 exports.saveCallback = function(res) {
   return function(err, entity) {
     if (!err) {
-      utils.sendCorrectMessage(res, {
+      ResponseUtils.sendCorrectMessage(res, {
         id : entity.id
       });
     } else {
-      utils.sendSystemErrorMessage(res, err.stack);
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
     }
   };
 };
@@ -18,14 +28,14 @@ exports.updateCallback = function(res) {
   return function(err, entity) {
     if (!err) {
       if (entity) {
-        utils.sendCorrectMessage(res, {
+        ResponseUtils.sendCorrectMessage(res, {
           id : entity.id
         });
       } else {
-        utils.sendSystemErrorMessage(res, 'Could not Find');
+        ResponseUtils.sendSystemErrorMessage(res, 'Could not Find');
       }
     } else {
-      utils.sendSystemErrorMessage(res, err.stack);
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
     }
   };
 };
@@ -35,14 +45,14 @@ exports.removeCallback = function(res) {
   return function(err, entity) {
     if (!err) {
       if (entity) {
-        utils.sendCorrectMessage(res, {
+        ResponseUtils.sendCorrectMessage(res, {
           id : entity.id
         });
       } else {
-        utils.sendSystemErrorMessage(res, 'Could not Find');
+        ResponseUtils.sendSystemErrorMessage(res, 'Could not Find');
       }
     } else {
-      utils.sendSystemErrorMessage(res, err.stack);
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
     }
   };
 };
@@ -51,9 +61,9 @@ exports.removeCallback = function(res) {
 exports.findOneCallback = function(res) {
   return function(err, entity) {
     if (!err) {
-      utils.sendCorrectMessage(res, entity);
+      ResponseUtils.sendCorrectMessage(res, entity);
     } else {
-      utils.sendSystemErrorMessage(res, err.stack);
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
     }
   };
 };
@@ -62,9 +72,9 @@ exports.findOneCallback = function(res) {
 exports.queryCallback = function(res) {
   return function(err, entities) {
     if (!err) {
-      utils.sendCorrectMessage(res, entities);
+      ResponseUtils.sendCorrectMessage(res, entities);
     } else {
-      utils.sendSystemErrorMessage(res, err.stack);
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
     }
   };
 };

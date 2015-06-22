@@ -1,6 +1,5 @@
 [
   {
-    "id" : 1,
     "developer" : "大华集团",
     "address" : "春柳路291号",
     "building" : "锦绣华城",
@@ -12,7 +11,6 @@
     "requirementId" : 1
   },
   {
-    "id" : 2,
     "developer" : "华谊集团",
     "address" : "大树路291号",
     "building" : "北华城",
@@ -24,7 +22,6 @@
     "requirementId" : 2
   },
   {
-    "id" : 3,
     "developer" : "碧桂园集团",
     "address" : "春华291号",
     "building" : "梨花城",

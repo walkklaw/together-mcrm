@@ -1,21 +1,21 @@
 [
   {
-    "id" : 1,
+    "name": "赵毅",
     "role" : "designer",
     "storeId" : 1
   },
   {
-    "id" : 2,
+    "name": "钱尔",
     "role" : "designer",
     "storeId" : 2
   },
   {
-    "id" : 3,
+    "name": "孙衫",
     "role" : "designer",
     "storeId" : 3
   },
   {
-    "id" : 4,
+    "name": "李斯",
     "role" : "director",
     "storeId" : 1
   } ]

@@ -1,6 +1,6 @@
 [
   {
-    "id" : 1,
+    "level" : "A",
     "createDate" : "2015-06-05",
     "store" : 1,
     "primaryUser" : 1,
@@ -15,7 +15,7 @@
     "creater" : 1
   },
   {
-    "id" : 2,
+    "level" : "B",
     "createDate" : "2015-04-05",
     "store" : 2,
     "primaryUser" : 2,
@@ -30,7 +30,7 @@
     "creater" : 2
   },
   {
-    "id" : 3,
+    "level" : "C",
     "createDate" : "2015-05-05",
     "store" : 3,
     "primaryUser" : 3,
