@@ -15,7 +15,7 @@ define([
       end : '',
       isEffective : false,
     },
-    
+
   });
 
   return CutomerRecord;

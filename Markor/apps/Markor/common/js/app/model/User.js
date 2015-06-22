@@ -10,6 +10,7 @@ define([
     urlRoot : Config.API_URL + '/users',
 
     defaults : {
+      name: '',
       role : '',
       storeId : 0,
     },

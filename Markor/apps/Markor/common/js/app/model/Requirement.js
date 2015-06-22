@@ -10,6 +10,7 @@ define([
     urlRoot : Config.API_URL + '/requirements',
 
     defaults : {
+      level : '',
       createDate : '',
       store : 0,
       primaryUser : 0,

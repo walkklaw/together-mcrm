@@ -4,12 +4,15 @@ define([
 
   var CustomerRequirementView = BaseView.extend({
     events : {
-//      'swipeleft .ui-content' : 'prev',
-//      'swiperight .ui-content' : 'next',
       'pageshow' : 'render',
     },
 
-    next: function() {
+    initialize : function(args) {
+      this.requirementBriefs = args && args.props;
+      console.log(this.requirementBriefs);
+    },
+    
+    test: function() {
       $.mobile.changePage('customer_process.html');
     },
     
