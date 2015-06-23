@@ -9,12 +9,14 @@ define([
 
     urlRoot : Config.API_URL + '/users',
 
+    idAttribute : '_id',
+
     defaults : {
-      name: '',
+      name : '',
       role : '',
       storeId : 0,
     },
-    
+
   });
 
   return User;

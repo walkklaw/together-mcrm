@@ -9,12 +9,14 @@ define([
 
     urlRoot : Config.API_URL + '/stores',
 
+    idAttribute : '_id',
+
     defaults : {
       city : '',
       address : '',
       alliance : '',
     },
-    
+
   });
 
   return Store;

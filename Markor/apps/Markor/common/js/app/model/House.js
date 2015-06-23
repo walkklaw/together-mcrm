@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/houses',
 
+    idAttribute : '_id',
+
     defaults : {
       developer : '',
       address : '',
@@ -20,7 +22,7 @@ define([
       designer : '',
       requirementId : 0,
     },
-    
+
   });
 
   return House;

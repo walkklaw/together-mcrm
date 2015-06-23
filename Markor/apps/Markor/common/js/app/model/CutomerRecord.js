@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/cutomerRecords',
 
+    idAttribute : '_id',
+
     defaults : {
       userId : 0,
       start : '',

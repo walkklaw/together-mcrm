@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/perchaseIntentions',
 
+    idAttribute : '_id',
+
     defaults : {
       roomPlanning : '',
       style : '',
@@ -16,7 +18,7 @@ define([
       series : '',
       requirementId : 0,
     },
-    
+
   });
 
   return PerchaseIntention;

@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/customers',
 
+    idAttribute : '_id',
+
     defaults : {
       name : '',
       gender : '',
@@ -19,7 +21,7 @@ define([
       characteristic : '',
       comment : [],
     },
-    
+
   });
 
   return Customer;

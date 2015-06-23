@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/requirements',
 
+    idAttribute : '_id',
+
     defaults : {
       level : '',
       createDate : '',
@@ -22,7 +24,7 @@ define([
       customerId : 0,
       creater : 0,
     },
-    
+
   });
 
   return Requirement;

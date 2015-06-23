@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/deliveryIntentions',
 
+    idAttribute : '_id',
+
     defaults : {
       liftDoorSize : '',
       staircaseDoorSize : '',
@@ -22,7 +24,7 @@ define([
       hangingDecorationComment : '',
       requirementId : 0,
     },
-    
+
   });
 
   return DeliveryIntention;

@@ -9,6 +9,8 @@ define([
 
     urlRoot : Config.API_URL + '/trackInfos',
 
+    idAttribute : '_id',
+
     defaults : {
       level : '',
       eventType : '',
@@ -23,7 +25,7 @@ define([
       detail : '',
       requirementId : 0,
     },
-    
+
   });
 
   return TrackInfo;

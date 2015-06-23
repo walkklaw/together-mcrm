@@ -9,13 +9,15 @@ define([
 
     urlRoot : Config.API_URL + '/orderLostings',
 
+    idAttribute : '_id',
+
     defaults : {
       lostingDate : '',
       reason : '',
       competitorPurchaseReason : '',
       requirementId : 0,
     },
-    
+
   });
 
   return OrderLosting;
