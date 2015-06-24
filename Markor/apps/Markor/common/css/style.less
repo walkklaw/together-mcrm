@@ -1,10 +1,11 @@
 /**** colours ****/
 @color-green: #1da7a1;
+@color-light-green: #45d100;
 @color-light-blue: #38c;
 @color-blue: #00649d;
 @color-dark-blue: #004266;
 @color-orange: #ff7a01;
-@color-yellow: #ffcf01;
+@color-yellow: #fee301;
 @color-red: #D9182D;
 @color-black: #000000;
 @color-white: #ffffff;
@@ -330,6 +331,19 @@ table.nostyle {
 		}
 	}
 }
+#customerContainer {
+	.ui-content {
+		padding: 1em 0;
+	}
+	#customerProcess, #customerHouse, #customerIntention, #customerBill {
+		padding: 0 1em;
+	}
+	#customerProcess {
+		.customerName {
+			margin-top: 1em;
+		}
+	}
+}
 #customerBaseInfo {
 	.cname {
 		.ui-input-text {
@@ -429,46 +443,65 @@ table.nostyle {
 }
 #customerRecord {
 	.record {
-		margin: 3em;
-		.ui-link {
-			width: 5em;
-			height: 5em;
-			margin: 0 auto;
-			padding: 3em;
-			text-indent: -9999999px;
+		margin: 0.5em 0;
+		background-color: @color-gray-1;
+		border: 1px solid darken(@color-gray-1, 10%);
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		font-size: 3.3em;
+		font-weight: bold;
+		padding: 0.2em 0.1em;
+		text-align: center;
+		span {
+			display: inline-block;
+			border: 1px solid darken(@color-gray-1, 10%);
+			background-color: @color-white;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			padding: 0.1em;
 		}
-		.ui-icon-time {
-			&:after {
-				background-color: transparent;
-				left: 50%;
-				top: 50%;
-				margin-top: -2em;
-				margin-left: -2em;
-				width: 4em;
-				height: 4em;
-				background-image: url(../images/clock.svg);
-				background-size: 3em;
-			}
-		}
+	}
+	hr {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+	.time {
+		text-align: center;
 	}
 	.startTime, .endTime {
-		// text-align: center;
-		width: 60%;
-		margin: 0.5em auto;
+		margin: 1em 0.2em;
+		display: inline-block;
+		font-size: 0.9em;
 	}
 	.cusNum {
+		margin: 1em 0.2em;
 		text-align: center;
 		padding: 1px;
 		.ui-input-text {
-			width: 50%;
+			width: 62%;
 			display: inline-block;
 		}
 		.ui-icon-carat-r {
-			display: inline-block;
-			vertical-align: top;
-			margin-left: 0.5em;
-			margin-top: 0.6em;
+			&, &:hover, &.ui-btn-active {
+				border-color: transparent;
+				background-color: transparent;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 0.5em;
+				margin-top: 0.6em;
+			}
+
+			&:after {
+				background-image: url("../images/carat-r.svg");
+				background-color: transparent;
+			}
 		}
+	}
+	.onUse {
+		text-align: right;
+		display: block;
 	}
 	.ui-icon-forbidden {
 		width: 60%;
@@ -637,20 +670,23 @@ table.nostyle {
 			}
 		}
 	}
+	.ui-link {
+		color: @color-green;
+	}
 	.done:after {
-		border-color: @color-gray-1;
+		border-color: @color-gray-2;
 	}
 	.ontime:after {
-		border-color: @color-green;
+		border-color: @color-light-green;
 	}
 	.delay:after {
 		border-color: @color-red;
 	}
 	.dashed.done:after {
-		background-color: @color-gray-1;
+		background-color: @color-gray-2;
 	}
 	.dashed.ontime:after {
-		background-color: @color-green;
+		background-color: @color-light-green;
 	}
 	.dashed.delay:after {
 		background-color: @color-red;

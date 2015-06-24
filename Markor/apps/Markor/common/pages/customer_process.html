@@ -1,4 +1,4 @@
-<div id="" data-role="page" data-class="CustomerProcessView">
+<div id="customerContainer" data-role="page" data-class="CustomerProcessView">
 	<!--  data-dom-cache="true"> -->
 
 	<div data-role="header" data-position="fixed" data-tap-toggle="false">
@@ -161,23 +161,23 @@
 					<tbody>
 						<tr>
 							<th>开发商</th>
-							<td>大华集团</td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>楼盘名称</th>
-							<td>锦绣华城</td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>送货地址</th>
-							<td>春柳路291号</td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>交房日期</th>
-							<td>2014/12/32</td>
+							<td><input type="date" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>入住日期</th>
-							<td>2015/05/22</td>
+							<td><input type="date" name="" id=""></td>
 						</tr>
 						<tr>
 							<td colspan="2">
@@ -208,23 +208,22 @@
 							</td>
 						</tr>
 						<tr>
-							<td>是否有硬装设计师</td>
-							<td>
+							<td colspan="2" class="designer">是否有硬装设计师
 								<fieldset data-role="controlgroup" data-type="horizontal">
-									<input name="design" id="yes" value="on" checked="checked" type="radio">
-									<label for="yes">是</label>
-									<input name="design" id="no" value="off" type="radio">
-									<label for="no">否</label>
+									<input name="design1" id="yes1" value="on" checked="checked" type="radio">
+									<label for="yes1">是</label>
+									<input name="design1" id="no1" value="off" type="radio">
+									<label for="no1">否</label>
 								</fieldset>
 							</td>
 						</tr>
 						<tr>
 							<td>装修公司</td>
-							<td>东易日盛</td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<td>硬装设计师</td>
-							<td>王哲</td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 					</tbody>
 				</table>
@@ -333,63 +332,63 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="customerBill">
+			<div id="customerBill">
 				<h3>送货信息</h3>
 				<table class="infoList nostyle">
 					<tbody>
 						<tr>
 							<th>电梯门尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>楼梯门尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>入户门尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>电梯内部尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>楼体内部尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<th>入房间门尺寸</th>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<td>是否抬楼</td>
 							<td>
 								<fieldset data-role="controlgroup" data-type="horizontal">
-									<input name="upstairs" id="yes" value="on" type="radio" checked="checked">
-									<label for="yes">是</label>
-									<input name="upstairs" id="no" value="off" type="radio">
-									<label for="no">否</label>
+									<input name="upstairs" id="yes2" value="on" type="radio" checked="checked">
+									<label for="yes2">是</label>
+									<input name="upstairs" id="no2" value="off" type="radio">
+									<label for="no2">否</label>
 								</fieldset>
 							</td>
 						</tr>
 						<tr>
 							<td>楼层</td>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 						<tr>
 							<td>是否吊装</td>
 							<td>
 								<fieldset data-role="controlgroup" data-type="horizontal">
-									<input name="lifting" id="yes1" value="on" type="radio" checked="checked">
-									<label for="yes1">是</label>
-									<input name="lifting" id="no1" value="off" type="radio">
-									<label for="no1">否</label>
+									<input name="lifting" id="yes3" value="on" type="radio" checked="checked">
+									<label for="yes3">是</label>
+									<input name="lifting" id="no3" value="off" type="radio">
+									<label for="no3">否</label>
 								</fieldset>
 							</td>
 						</tr>
 						<tr>
 							<td>如需吊装 明细</td>
-							<td></td>
+							<td><input type="text" name="" id=""></td>
 						</tr>
 					</tbody>
 				</table>
