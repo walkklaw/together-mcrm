@@ -3,6 +3,16 @@ var ResponseUtils = require('./ResponseUtils');
 exports.commonCallback = function(res, handleResult) {
   return function(err, result) {
     if (!err) {
+      handleResult && handleResult(result);
+    } else {
+      ResponseUtils.sendSystemErrorMessage(res, err.stack);
+    }
+  };
+};
+
+exports.commonResponseCallback = function(res, handleResult) {
+  return function(err, result) {
+    if (!err) {
       ResponseUtils.sendCorrectMessage(res, handleResult(result));
     } else {
       ResponseUtils.sendSystemErrorMessage(res, err.stack);

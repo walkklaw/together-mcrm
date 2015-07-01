@@ -38,7 +38,12 @@ MongooseUtils.initConnection(function() {
   registerBasicRestApis(Models);
   registerInitDBApi(Models);
 
-  app.get('/requirementBriefs', require('./routes/api/RequirementBriefs').getRequirementBriefs);
+  app.get('/requirementBriefs/:userId',
+    require('./routes/api/RequirementBriefs').getRequirementBriefs);
+  app.get('/backlogs/:userId',
+    require('./routes/api/Backlogs').getBacklogsByUserId);
+  app.get('/backlogs', require('./routes/api/Backlogs').getBacklogs);
+
   app.listen(port, host);
   console.log('App started on port ' + port);
 });

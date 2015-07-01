@@ -9,13 +9,14 @@ var Stores = mongoose.model('stores');
 
 var getModelFields = require('../APIUtils').getModelFields;
 
-// CallBacks.queryCallback(res)
 exports.getRequirementBriefs = function(req, res) {
-  var query = Requirements.find(req.query).select(getModelFields(Requirements));
+  var query = Requirements.find({
+    primaryUser : req.params.userId,
+  }).select(getModelFields(Requirements));
   query.populate('store', getModelFields(Stores));
   query.populate('primaryUser', getModelFields(Users));
   query.populate('customerId', getModelFields(Customers));
-  query.exec(CallBacks.commonCallback(res, function(requirements) {
+  query.exec(CallBacks.commonResponseCallback(res, function(requirements) {
     return requirements.map(function(requirement) {
       return {
         createDate : requirement.createDate,
