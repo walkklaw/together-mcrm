@@ -25,7 +25,7 @@ exports.saveCallback = function(res) {
   return function(err, entity) {
     if (!err) {
       ResponseUtils.sendCorrectMessage(res, {
-        id : entity.id
+        _id : entity._id
       });
     } else {
       ResponseUtils.sendSystemErrorMessage(res, err.stack);
@@ -39,7 +39,7 @@ exports.updateCallback = function(res) {
     if (!err) {
       if (entity) {
         ResponseUtils.sendCorrectMessage(res, {
-          id : entity.id
+          _id : entity._id
         });
       } else {
         ResponseUtils.sendSystemErrorMessage(res, 'Could not Find');
@@ -56,7 +56,7 @@ exports.removeCallback = function(res) {
     if (!err) {
       if (entity) {
         ResponseUtils.sendCorrectMessage(res, {
-          id : entity.id
+          _id : entity._id
         });
       } else {
         ResponseUtils.sendSystemErrorMessage(res, 'Could not Find');

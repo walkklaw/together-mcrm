@@ -11,7 +11,7 @@ var getModelFields = require('../APIUtils').getModelFields;
 
 exports.getRequirementBriefs = function(req, res) {
   var query = Requirements.find({
-    primaryUser : req.params.userId,
+    customerId : req.params.customerId,
   }).select(getModelFields(Requirements));
   query.populate('store', getModelFields(Stores));
   query.populate('primaryUser', getModelFields(Users));

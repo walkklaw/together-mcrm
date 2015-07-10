@@ -3,9 +3,9 @@ var Promise = require('promise');
 // model: mongoose model, json: object
 function insertDataForModel(model, json) {
   model.collection.drop();
-  
-  return new Promise(function (fulfill, reject){
-    model.resetCount(function(err, nextCount){
+
+  return new Promise(function(fulfill, reject) {
+    model.resetCount(function(err, nextCount) {
       model.create(json, function(err, result) {
         if (err) {
           reject && reject(err);
@@ -17,7 +17,7 @@ function insertDataForModel(model, json) {
   });
 }
 
-function log(arg){
+function log(arg) {
   console.log(arg);
 };
 
@@ -28,18 +28,18 @@ exports.initDB = function initDB(Models, success, error) {
   var modelAndPaths = [], name;
   success = success || log;
   error = error || log;
-  
-  for(name in Models) {
+
+  for (name in Models) {
     modelAndPaths.push({
-      fileName: name,
-      model: Models[name],
+      fileName : name,
+      model : Models[name],
     });
   }
-  
-  Promise.all(modelAndPaths.map(function(modelAndPath){
+
+  Promise.all(modelAndPaths.map(function(modelAndPath) {
     var jsonFile = './routes/data/' + modelAndPath.fileName + '.json';
-    
-    return readFile(jsonFile, 'utf8').then(JSON.parse, function(err){
+
+    return readFile(jsonFile, 'utf8').then(JSON.parse, function(err) {
       log('Load and parseing ' + modelAndPath.fileName + ': ' + err);
     }).then(function(json) {
       return insertDataForModel(modelAndPath.model, json);
@@ -51,4 +51,3 @@ exports.initDB = function initDB(Models, success, error) {
     error();
   });
 }
-

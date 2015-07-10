@@ -11,7 +11,7 @@ exports.create = function(model, req, res) {
 // Find One Entity
 exports.findOne = function(model, req, res) {
   model.findOne({
-    id : req.params.id
+    _id : req.params._id
   }, getModelFields(model), CallBacks.findOneCallback(res));
 };
 
@@ -24,9 +24,8 @@ exports.query = function(model, req, res) {
 // Update One Entity
 exports.update = function(model, req, res) {
   delete req.body._id;
-  delete req.body.id;
   model.findOneAndUpdate({
-    id : req.params.id
+    _id : req.params._id
   }, {
     $set : req.body
   }, {
@@ -37,6 +36,6 @@ exports.update = function(model, req, res) {
 // Delete One Entity
 exports.del = function(model, req, res) {
   model.findOneAndRemove({
-    id : req.params.id
+    _id : req.params._id
   }, CallBacks.removeCallback(res));
 };

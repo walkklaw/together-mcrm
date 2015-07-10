@@ -38,11 +38,14 @@ MongooseUtils.initConnection(function() {
   registerBasicRestApis(Models);
   registerInitDBApi(Models);
 
-  app.get('/requirementBriefs/:userId',
+  app.get('/requirementBriefs/:customerId',
     require('./routes/api/RequirementBriefs').getRequirementBriefs);
   app.get('/backlogs/:userId',
     require('./routes/api/Backlogs').getBacklogsByUserId);
+  // ?city&alliance&_id(storeId)
   app.get('/backlogs', require('./routes/api/Backlogs').getBacklogs);
+  app.post('/initialRequirement',
+    require('./routes/api/InitialRequirement').initializeRequirement);
 
   app.listen(port, host);
   console.log('App started on port ' + port);
