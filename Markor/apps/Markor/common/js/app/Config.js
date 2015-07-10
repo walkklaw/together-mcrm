@@ -13,6 +13,7 @@ define({
     'view/CustomerIntentionView',
     'view/CustomerDeliveryView',
     'view/CustomerLostbillView',
+    'view/CustomerRecordView',
   ],
 
   ENTRY_PAEGS : [

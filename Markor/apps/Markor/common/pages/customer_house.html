@@ -84,4 +84,74 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<script id="house-template" type="text/x-handlebars-template">
+		<tr>
+			<th>开发商</th>
+			<td>{{developer}}</td>
+		</tr>
+		<tr>
+			<th>楼盘名称</th>
+			<td>{{address}}</td>
+		</tr>
+		<tr>
+			<th>送货地址</th>
+			<td>{{building}}</td>
+		</tr>
+		<tr>
+			<th>交房日期</th>
+			<td>{{deliveryDate}}</td>
+		</tr>
+		<tr>
+			<th>入住日期</th>
+			<td>{{checkInDate}}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<fieldset data-role="controlgroup">
+					<input name="style" {{#equal type '1'}}checked{{/equal}} id="s1" value="1" type="radio">
+					<label for="s1">公寓</label>
+					<input name="style" {{#equal type '2'}}checked{{/equal}} id="s2" value="2" type="radio">
+					<label for="s2">别墅</label>
+					<input name="style" {{#equal type '3'}}checked{{/equal}} id="s3" value="3" type="radio">
+					<label for="s3">现房</label>
+					<input name="style" {{#equal type '4'}}checked{{/equal}} id="s4" value="4" type="radio">
+					<label for="s4">期房</label>
+					<input name="style" {{#equal type '5'}}checked{{/equal}} id="s5" value="5" type="radio">
+					<label for="s5">老房</label>
+					<input name="style" {{#equal type '6'}}checked{{/equal}} id="s6" value="6" type="radio">
+					<label for="s6">精装</label>
+					<input name="style" {{#equal type '7'}}checked{{/equal}} id="s7" value="7" type="radio">
+					<label for="s7">毛坯</label>
+					<input name="style" {{#equal type '8'}}checked{{/equal}} id="s8" value="8" type="radio">
+					<label for="s8">未装修</label>
+					<input name="style" {{#equal type '9'}}checked{{/equal}} id="s9" value="9" type="radio">
+					<label for="s9">装修中</label>
+					<input name="style" {{#equal type '10'}}checked{{/equal}} id="s10" value="10" type="radio">
+					<label for="s10">装修完成</label>
+					<input name="style" {{#equal type '11'}}checked{{/equal}} id="s11" value="11" type="radio">
+					<label for="s11">二次装修/新房</label>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>是否有硬装设计师</td>
+			<td>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<input name="design" id="yes" value="on" checked="checked" type="radio">
+					<label for="yes">是</label>
+					<input name="design" id="no" value="off" type="radio">
+					<label for="no">否</label>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>装修公司</td>
+			<td>{{decorationCompany}}</td>
+		</tr>
+		<tr>
+			<td>硬装设计师</td>
+			<td>{{designer}}</td>
+		</tr>
+	</scirpt>
 </div>

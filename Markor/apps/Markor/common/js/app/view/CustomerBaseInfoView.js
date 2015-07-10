@@ -10,13 +10,14 @@ define([
 
   var CustomerBaseInfoView = BaseView.extend({
     events : {
-      'pageshow' : 'render',
-      'click #save' : 'save',
+      'pagebeforeshow' : 'render',
+      'touchend #save' : 'save',
+      'touchend #addPhoneBtn' : 'addPhone',
     },
 
     initialize : function(args) {
       this.customer = args && args.props;
-      console.log(this.customer);
+      this.customer = Customers.datas.at(0);
     },
 
     render : function() {
@@ -30,27 +31,53 @@ define([
     loadRequirement : function() {
       var requirementBriefs = new RequirementBriefs();
       this.loadColl(requirementBriefs, {
-        customerId: 1,//this.customer.get('id'),
-      }).then(function(){
+        customerId : this.customer.get('id'),
+      }).then(function() {
         $.mobile.changePage('customer_requirement.html', {
-          props: requirementBriefs,
+          props : requirementBriefs,
         });
       });
     },
 
-    save : function() {
-      // save customer
-      var test;
-      this.$('[name="gender"][checked]').prop('id');
-      this.$('.tel p').text();
-      this.$('#birthday').val();
-      test = this.$('#age').val();
-      test = this.$('#family').val();
-      test = this.$('#characteristic').val();
-      test = this.$('#comments').val();
-      console.log(test);
+    getPhones : function() {
+      var i, len, phones = [], $p = this.$('.tel p');
+      for (i = 0, len = $p.length; i < len; i++) {
+        phones.push($($p[0]).text());
+      }
+      return phones;
+    },
 
-      this.loadRequirement();
+    getComments : function() {
+      this.$('#comments').val();
+    },
+
+    save : function() {
+      // * save customer, but not save comments here
+      this.customer.save({
+        name : this.$('#name').val(),
+        gender : this.$('[name="gender"][checked]').prop('id'),
+        phones : this.getPhones(),
+        birthday : this.$('#birthday').val(),
+        age : parseInt(this.$('#age').val()),
+        family : this.$('#family').val(),
+        characteristic : this.$('#characteristic').val(),
+      }, {
+        success : (function() {
+          this.loadRequirement();
+        }).bind(this),
+      });
+    },
+
+    // * filter the invalid inputs
+    addPhone : function() {
+      var $addBtn = this.$('#addPhone'), newPhone = $addBtn.val(), $p, $ps;
+      if (!/^\s*$/.test(newPhone)) {
+        $p = $('<p>').html($addBtn.val());
+        $ps = this.$('.tel p');
+        $($ps[$ps.length - 1]).after($p);
+
+        $addBtn.val('');
+      }
     },
   });
 

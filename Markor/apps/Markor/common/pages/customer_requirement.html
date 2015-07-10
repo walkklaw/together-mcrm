@@ -13,44 +13,25 @@
 	</div>
 	<div data-role="content">
 		<h3>需求概览</h3>
-		<a href="customer_process.html" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext">Add</a>
+		<a id="addRequirementBtn" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext">Add</a>
 		<ul class="requireList">
-			<li>
-				<div class="row">
-					<div class="col-xs-4">2015.03.15</div>
-					<div class="col-xs-4">大连XX店</div>
-					<div class="col-xs-4">设计顾问XXX</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">需求级别A</div>
-					<div class="col-xs-4">待家访</div>
-					<div class="col-xs-4"></div>
-				</div>
-			</li>
-			<li>
-				<div class="row">
-					<div class="col-xs-4">2014.06.05</div>
-					<div class="col-xs-4">长沙XX店</div>
-					<div class="col-xs-4">设计顾问ZZZ</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">需求级别B</div>
-					<div class="col-xs-4">待联系</div>
-					<div class="col-xs-4"></div>
-				</div>
-			</li>
-			<li>
-				<div class="row">
-					<div class="col-xs-4">2013.12.01</div>
-					<div class="col-xs-4">大连XX店</div>
-					<div class="col-xs-4">设计顾问XXX</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">需求级别A</div>
-					<div class="col-xs-4">已完结</div>
-					<div class="col-xs-4"></div>
-				</div>
-			</li>
 		</ul>
 	</div>
+	
+	<script id="requirement-brief-template" type="text/x-handlebars-template">
+		{{#each this}}
+			<li data-id="{{_id}}">
+				<div class="row">
+					<div class="col-xs-4">{{createDate}}</div>
+					<div class="col-xs-3">{{store}}</div>
+					<div class="col-xs-5">设计顾问 {{primaryUser}}</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4">需求级别{{level}}</div>
+					<div class="col-xs-3">{{status}}</div>
+					<div class="col-xs-5"></div>
+				</div>
+			</li>
+		{{/each}}
+	</script>
 </div>

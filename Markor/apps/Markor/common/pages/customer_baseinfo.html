@@ -16,58 +16,6 @@
 		<table class="infoList">
 			<tbody>
 				<tr>
-					<th>姓&emsp;&emsp;名</th>
-					<td class="cname">
-						<input type="text" name="" id="">
-						<fieldset data-role="controlgroup" data-type="horizontal">
-							<input name="gender" id="male" value="on" checked="checked" type="radio">
-							<label for="male">先生</label>
-							<input name="gender" id="female" value="off" type="radio">
-							<label for="female">女士</label>
-						</fieldset>
-					</td>
-				</tr>
-				<tr>
-					<th>手&ensp;机&ensp;号</th>
-					<td class="tel">
-						<p>13548374565</p>
-						<p>13548374565</p>
-						<p>13548374565</p>
-						<input type="text" name="" id="">
-						<a href="#" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext">Add</a>
-					</td>
-				</tr>
-				<tr>
-					<th>生&emsp;&emsp;日</th>
-					<td>
-						<input type="date" name="" id="">
-					</td>
-				</tr>
-				<tr>
-					<th>年&emsp;&emsp;龄</th>
-					<td>
-						<input type="text" name="" id="">
-					</td>
-				</tr>
-				<tr>
-					<th>家庭成员</th>
-					<td>
-						<input type="text" name="" id="">
-					</td>
-				</tr>
-				<tr>
-					<th>顾客特征</th>
-					<td>
-						<input type="text" name="" id="">
-					</td>
-				</tr>
-				<tr>
-					<th>备&emsp;&emsp;注</th>
-					<td>
-						<textarea name="" id=""></textarea>
-					</td>
-				</tr>
-				<tr>
 					<td colspan="2">
 						<button class="ui-btn" id="save">保存</button>
 					</td>
@@ -75,4 +23,65 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<script id="customer-template" type="text/x-handlebars-template">
+		<tr>
+			<th>姓&emsp;&emsp;名</th>
+			<td class="cname">
+				<input type="text" name="" id="name" value="{{name}}" />
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<input name="gender" id="male" value="on" {{#equal gender 'male'}}checked{{/equal}} type="radio">
+					<label for="male">先生</label>
+					<input name="gender" id="female" value="off" {{#equal gender 'female'}}checked{{/equal}} type="radio">
+					<label for="female">女士</label>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<th>手&ensp;机&ensp;号</th>
+			<td class="tel">
+				{{#each phones}}
+					<p>{{this}}</p>
+				{{/each}}
+				<input type="text" name="" id="addPhone">
+				<a id="addPhoneBtn" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext">Add</a>
+			</td>
+		</tr>
+		<tr>
+			<th>生&emsp;&emsp;日</th>
+			<td>
+				<input type="date" name="" id="birthday" value="{{birthday}}" />
+			</td>
+		</tr>
+		<tr>
+			<th>年&emsp;&emsp;龄</th>
+			<td>
+				<select id="age">
+					<option value="1" {{#equal age '1'}}selected{{/equal}}>30岁以下</option>
+					<option value="2" {{#equal age '2'}}selected{{/equal}}>30-39岁</option>
+					<option value="3" {{#equal age '3'}}selected{{/equal}}>40-49岁</option>
+					<option value="4" {{#equal age '4'}}selected{{/equal}}>50岁以上</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>家庭成员</th>
+			<td>
+				<input type="text" name="" id="family" value="{{family}}" />
+			</td>
+		</tr>
+		<tr>
+			<th>顾客特征</th>
+			<td>
+				<input type="text" name="" id="characteristic" value="{{characteristic}}" />
+			</td>
+		</tr>
+		<tr>
+			<th>备&emsp;&emsp;注</th>
+			<td>
+				<textarea name="" id="comments" cols="30">{{#each comments}}{{content}};{{/each}}</textarea>
+			</td>
+		</tr>
+	</script>
+	
 </div>

@@ -1,4 +1,4 @@
-<div id="customerRecord" data-role="page">
+<div id="customerRecord" data-role="page" data-class="CustomerRecordView">
 	<!--  data-dom-cache="true"> -->
 
 <!-- 	<div data-role="header" data-position="fixed" data-tap-toggle="false"> -->
@@ -7,26 +7,19 @@
 <!-- 	</div> -->
 
 	<div data-role="content">
-		<div class="record">
-			<span class="hours">14</span>:<span class="minutes">17</span>:<span class="seconds">32</span>
+		<div id="timming">
+			<div class="record">
+				<span class="hours">14</span>:<span class="minutes">17</span>:<span class="seconds">32</span>
+			</div>
+			<button id="startTimmingBtn" class="ui-btn">开始计时</button>
+			<button id="stopTimmingBtn" class="ui-btn">结束计时</button>
+			<hr>
+			<div class="time">
+				<span class="startTime">开始接待：<span>00:00:00</span></span> | 
+				<span class="endTime">结束接待：<span>00:00:00</span></span>
+			</div>
 		</div>
-		<button class="ui-btn">开始计时</button>
-		<hr>
-		<div class="time">
-			<span class="startTime">开始接待：<span>12:20:50</span></span> | 
-			<span class="endTime">结束接待：<span>13:20:50</span></span>
-		</div>
-		<div class="cusNum">客户电话 <input type="text" name="" id="" placeholder="输入顾客手机号码"><a href="customer_baseinfo.html" class="ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-notext">Add</a></div>
-		<a href=""class="onUse">无效客户</a>
+		<div class="cusNum">客户电话 <input type="text" name="" id="phone" placeholder="输入顾客手机号码"><a id="searchCustomer" href="" class="ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-notext">Add</a></div>
+		<a class="onUse">无效客户</a>
 	</div>
-<!-- 	<div data-role="footer" data-position="fixed" data-tap-toggle="false"> -->
-<!-- 		<div data-role="navbar"> -->
-<!-- 			<ul> -->
-<!-- 				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#messages"></use></svg><span>消息</span></a></li> -->
-<!-- 				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#contact"></use></svg><span>通讯录</span></a></li> -->
-<!-- 				<li class="active"><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#app"></use><span>应用</span></a></li> -->
-<!-- 				<li><a href="#"><svg class="barIcon"><use xlink:href="../images/barImg.svg#my"></use></svg><span>我的</span></a></li> -->
-<!-- 			</ul> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
 </div>

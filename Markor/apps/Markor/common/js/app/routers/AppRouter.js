@@ -47,7 +47,7 @@ define(
       for (var i = 0, len = configViewClass.length; i < len; i++) {
         viewClasses[configViewClass[i]] = arguments[i];
       }
-      page = 'home';
+      page = 'customer_requirement';
       // go to index page and init components
       $.mobile.changePage('pages/' + page + '.html');
     });

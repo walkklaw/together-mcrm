@@ -20,7 +20,7 @@ define([
       earnest : 0,
       predictedSale : 0,
       orderSum : 0,
-      status : '',
+      status : '待家访',
       customerId : 0,
       creater : 0,
     },

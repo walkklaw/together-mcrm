@@ -16,7 +16,6 @@ define([
 
   Customers.datas = new Customers([
     {
-      "id" : 1,
       "name" : "陈",
       "gender" : "male",
       "phones" : [
@@ -39,7 +38,6 @@ define([
         } ]
     },
     {
-      "id" : 2,
       "name" : "李",
       "gender" : "male",
       "phones" : [
@@ -62,7 +60,6 @@ define([
         } ]
     },
     {
-      "id" : 3,
       "name" : "黄",
       "gender" : "female",
       "phones" : [
